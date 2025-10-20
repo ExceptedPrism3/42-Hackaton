@@ -1,12 +1,12 @@
 import React from 'react';
 
 const team = [
-  { name: 'Member 1', role: 'Lead', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=1' },
-  { name: 'Member 2', role: 'Frontend', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=2' },
-  { name: 'Member 3', role: 'Backend', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=3' },
-  { name: 'Member 4', role: 'Data', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=4' },
-  { name: 'Member 5', role: 'Design', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=5' },
-  { name: 'Member 6', role: 'DevOps', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=6' },
+  { name: 'sabo-gla', role: 'Lead', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=2' },
+  { name: 'aben-cad', role: 'Backend', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=1' },
+  { name: 'spostica', role: 'Digital', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=3' },
+  { name: 'ameine', role: 'Data', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=4' },
+  { name: 'rreimann', role: 'Data', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=5' },
+  { name: '', role: '', avatarUrl: 'https://api.dicebear.com/7.x/thumbs/svg?seed=6' },
 ];
 
 export default function Team() {
