@@ -141,7 +141,7 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
         <form onSubmit={handleSend} className="flex gap-4">
           <div className="flex-1 relative">
             <input
-              className="w-full border-2 border-gray-200 rounded-2xl px-6 py-5 pr-18 text-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/80 backdrop-blur-sm"
+              className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 pr-16 text-lg focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/80 backdrop-blur-sm"
               placeholder="Ask about 42 Heilbronn..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -149,9 +149,9 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white p-3 rounded-xl hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className={`absolute right-3 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white p-3 rounded-xl hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 ${input.trim() ? 'animate-pulse' : ''}`}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-6 h-6 transition-transform duration-300 ${input.trim() ? '-rotate-12' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
             </button>
