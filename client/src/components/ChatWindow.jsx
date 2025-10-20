@@ -40,7 +40,7 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
   }
 
   return (
-    <div className="bg-white/80 backdrop-blur-xl border border-white/30 rounded-3xl shadow-2xl flex flex-col h-[calc(100vh-200px)] overflow-hidden relative">
+    <div className="bg-white/80 backdrop-blur-xl border border-white/30 rounded-3xl shadow-2xl flex flex-col h-[calc(100vh-170px)] overflow-hidden relative">
       {/* Chat Header */}
       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white p-6 rounded-t-3xl relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 via-purple-600/90 to-cyan-600/90"></div>
@@ -56,27 +56,24 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
               <p className="text-blue-100 text-sm">Ready to help with 42 Heilbronn questions</p>
             </div>
           </div>
-          <div className={`flex items-center space-x-2 px-3 py-1 rounded-full ${isOnline ? 'bg-green-500/20 text-green-100' : 'bg-red-500/20 text-red-100'}`}>
-            <div className={`w-2 h-2 rounded-full ${isOnline ? 'bg-green-400' : 'bg-red-400'} animate-pulse`}></div>
-            <span className="text-xs font-medium">{isOnline ? 'Connected' : 'Disconnected'}</span>
-          </div>
+          {/* Status indicator removed for cleaner header */}
         </div>
       </div>
 
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-8 space-y-6 bg-gradient-to-b from-gray-50/30 to-white/50">
+      <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-gray-50/30 to-white/50">
         {messages.length === 0 && (
-          <div className="text-center py-16">
+          <div className="text-center py-12">
             <div className="relative mb-8">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-3xl flex items-center justify-center mx-auto shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </div>
-              <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-400 rounded-full border-4 border-white animate-bounce"></div>
+              {/* Decorative green dot removed */}
             </div>
             <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
-              Welcome to 42 Heilbronn AI!
+              Welcome to 42Butler AI
             </h3>
             <p className="text-gray-600 text-lg mb-8 max-w-md mx-auto">
               Ask me anything about campus life, coding standards, or general 42 questions.

@@ -58,10 +58,7 @@ export default function App() {
                 <NavLink to="/about" className={({isActive}) => `text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'bg-blue-600 text-white shadow' : 'text-gray-700 hover:bg-gray-100'}`}>About</NavLink>
                 <NavLink to="/team" className={({isActive}) => `text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'bg-blue-600 text-white shadow' : 'text-gray-700 hover:bg-gray-100'}`}>Team</NavLink>
               </nav>
-              <div className={`flex items-center space-x-2 px-4 py-2 rounded-full ${isOnline ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                <div className={`w-3 h-3 rounded-full ${isOnline ? 'bg-green-500' : 'bg-red-500'} animate-pulse`}></div>
-                <span className="text-sm font-medium">{isOnline ? 'Online' : 'Offline'}</span>
-              </div>
+              {/* Removed header status pill for cleaner, tighter header */}
             </div>
           </div>
         </div>
