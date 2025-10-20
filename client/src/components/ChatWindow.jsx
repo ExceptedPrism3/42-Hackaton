@@ -40,79 +40,78 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
   }
 
   return (
-    <div className="bg-white/80 backdrop-blur-xl border border-white/30 rounded-3xl shadow-2xl flex flex-col h-[calc(100vh-170px)] overflow-hidden relative">
+    <div className="bg-white/80 backdrop-blur-xl border border-white/30 rounded-3xl shadow-2xl flex flex-col h-[calc(100vh-140px)] overflow-hidden relative">
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-gray-50/30 to-white/50">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-gray-50/30 to-white/50">
         {messages.length === 0 && (
-          <div className="text-center py-12">
-            <div className="relative mb-8">
-              <div className="w-24 h-24 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-3xl flex items-center justify-center mx-auto shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="text-center py-6">
+            <div className="relative mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </div>
-              {/* Decorative green dot removed */}
             </div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
+            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
               Welcome to 42Butler AI
             </h3>
-            <p className="text-gray-600 text-lg mb-8 max-w-md mx-auto">
+            <p className="text-gray-600 text-sm mb-4 max-w-md mx-auto">
               Ask me anything about campus life, coding standards, or general 42 questions.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <div className="grid grid-cols-2 gap-3 max-w-xl mx-auto">
               <button 
                 onClick={() => setInput("What are the opening hours?")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-blue-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl p-3 text-left hover:bg-blue-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors text-sm">
                     📅
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800">Opening hours</div>
-                    <div className="text-sm text-gray-500">Campus schedule info</div>
+                    <div className="font-semibold text-gray-800 text-sm">Opening hours</div>
+                    <div className="text-xs text-gray-500">Campus schedule</div>
                   </div>
                 </div>
               </button>
               <button 
                 onClick={() => setInput("Tell me about norminette")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-purple-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl p-3 text-left hover:bg-purple-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center group-hover:bg-purple-200 transition-colors">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center group-hover:bg-purple-200 transition-colors text-sm">
                     🔍
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800">Norminette help</div>
-                    <div className="text-sm text-gray-500">Coding standards</div>
+                    <div className="font-semibold text-gray-800 text-sm">Norminette help</div>
+                    <div className="text-xs text-gray-500">Coding standards</div>
                   </div>
                 </div>
               </button>
               <button 
                 onClick={() => setInput("Where is the coffee machine?")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-cyan-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl p-3 text-left hover:bg-cyan-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-cyan-100 rounded-xl flex items-center justify-center group-hover:bg-cyan-200 transition-colors">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-cyan-100 rounded-lg flex items-center justify-center group-hover:bg-cyan-200 transition-colors text-sm">
                     ☕
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800">Coffee machine</div>
-                    <div className="text-sm text-gray-500">Campus amenities</div>
+                    <div className="font-semibold text-gray-800 text-sm">Coffee machine</div>
+                    <div className="text-xs text-gray-500">Campus amenities</div>
                   </div>
                 </div>
               </button>
               <button 
                 onClick={() => setInput("What is moulinette?")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-pink-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl p-3 text-left hover:bg-pink-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-pink-100 rounded-xl flex items-center justify-center group-hover:bg-pink-200 transition-colors">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-pink-100 rounded-lg flex items-center justify-center group-hover:bg-pink-200 transition-colors text-sm">
                     🤖
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800">Moulinette info</div>
-                    <div className="text-sm text-gray-500">Grading system</div>
+                    <div className="font-semibold text-gray-800 text-sm">Moulinette info</div>
+                    <div className="text-xs text-gray-500">Grading system</div>
                   </div>
                 </div>
               </button>
@@ -138,11 +137,11 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
       </div>
 
       {/* Input Area */}
-      <div className="bg-white/90 backdrop-blur-sm border-t border-gray-200/30 p-6">
-        <form onSubmit={handleSend} className="flex gap-4">
+      <div className="bg-white/90 backdrop-blur-sm border-t border-gray-200/30 p-4">
+        <form onSubmit={handleSend} className="flex gap-3">
           <div className="flex-1 relative">
             <input
-              className="w-full border-2 border-gray-200 rounded-2xl px-6 py-4 pr-16 text-lg focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/80 backdrop-blur-sm"
+              className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 pr-14 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/80 backdrop-blur-sm"
               placeholder="Ask about 42 Heilbronn..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -150,9 +149,9 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white p-3 rounded-xl hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white p-2 rounded-lg hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
             </button>
