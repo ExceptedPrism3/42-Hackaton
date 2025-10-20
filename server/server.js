@@ -17,10 +17,14 @@ app.use(cors());
 app.use(express.json());
 
 // Read knowledge base
-function getKnowledgeBase() {
+function getKnowledgeBase(maxLength = 10000) {
   try {
     const kbPath = path.join(__dirname, 'knowledge_base.md');
-    return fs.readFileSync(kbPath, 'utf8');
+    let content = fs.readFileSync(kbPath, 'utf8');
+    if (content.length > maxLength) {
+      content = content.substring(0, maxLength) + '\n... (knowledge base truncated) ...';
+    }
+    return content;
   } catch (error) {
     console.error('Error reading knowledge base:', error);
     return '';
@@ -42,6 +46,18 @@ app.get('/api/knowledge-base', (_req, res) => {
   }
 });
 
+// Content filtering for inappropriate language
+function containsInappropriateContent(text) {
+  const inappropriateWords = [
+    'fuck', 'shit', 'damn', 'bitch', 'asshole', 'bastard', 'cunt', 'piss',
+    'stupid', 'idiot', 'moron', 'retard', 'gay', 'fag', 'nigger', 'whore',
+    'kill', 'die', 'hate', 'suck', 'dumb', 'ugly', 'fat', 'loser'
+  ];
+  
+  const lowerText = text.toLowerCase();
+  return inappropriateWords.some(word => lowerText.includes(word));
+}
+
 // Chat endpoint
 app.post('/api/chat', async (req, res) => {
   try {
@@ -51,14 +67,50 @@ app.post('/api/chat', async (req, res) => {
       return res.status(400).json({ error: 'Messages array is required' });
     }
 
-    // Check if API key is configured and has quota
-    if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'YOUR_API_KEY_HERE') {
-      return res.status(500).json({ 
-        error: 'OpenAI API key not configured. Please set OPENAI_API_KEY in .env file.' 
-      });
+    // Check for inappropriate content in the latest message
+    const latestMessage = messages[messages.length - 1];
+    if (latestMessage && containsInappropriateContent(latestMessage.content)) {
+      const inappropriateReply = `🚫 **I can't help with that kind of language.**
+
+I'm here to assist with 42 Heilbronn questions in a respectful and professional manner. 
+
+Let's keep our conversation focused on:
+• Campus information and facilities
+• Coding standards and projects  
+• 42 Heilbronn academic topics
+• Technical questions and guidance
+
+What 42-related question can I help you with instead? 🤝`;
+      
+      return res.json({ reply: inappropriateReply });
     }
 
-    const knowledgeBase = getKnowledgeBase();
+    // Check if API key is configured and has quota
+    if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'YOUR_API_KEY_HERE') {
+      const fallbackReply = `🔧 **42Butler is currently in maintenance mode.**
+
+I'm temporarily unable to access my full AI capabilities, but I can still provide basic 42 Heilbronn information:
+
+**📚 Campus Essentials:**
+• **Hours**: Open 24/7 for coding sessions
+• **Coffee**: Free machine in the ground floor lounge
+• **WiFi**: Campus-wide high-speed internet
+• **Study Areas**: Multiple floors with comfortable seating
+
+**💻 Academic Tools:**
+• **Norminette**: Run \`norminette\` to check coding standards
+• **Moulinette**: Automated project grading system
+• **Intranet**: Access via campus computers
+• **Peer Evaluation**: Submit through the intranet
+
+**🎯 I specialize in 42 Heilbronn topics only.** For general questions, please use Google or other search engines.
+
+What specific 42-related question can I help you with? 🚀`;
+      
+      return res.json({ reply: fallbackReply });
+    }
+
+    const knowledgeBase = getKnowledgeBase(10000);
     
     try {
       const systemPrompt = `You are a specialized AI assistant ONLY for 42 Heilbronn students. 
@@ -121,7 +173,7 @@ I'm here to help with:
 
 What 42-related question can I help you with? 🎓`;
         } else {
-          fallbackReply = `👋 **Hello!** I'm the 42 Heilbronn AI Assistant. While my advanced AI features are temporarily unavailable, I can still help with campus information:
+          fallbackReply = `👋 **Hello!** I'm 42Butler. While my advanced AI features are temporarily unavailable, I can still help with campus information:
 
 • Campus is open 24/7
 • Free coffee in the lounge
@@ -144,24 +196,45 @@ What would you like to know about 42 Heilbronn? 🎓`;
     
     // Handle quota exceeded or API errors gracefully
     if (error.code === 'insufficient_quota' || error.status === 429) {
-      const fallbackReply = `I'm currently experiencing high demand and my API quota has been exceeded. 
-      
-However, I can still help you with basic information about 42 Heilbronn:
+      const fallbackReply = `⚡ **42Butler is experiencing high demand!**
 
-- **Opening Hours**: The cluster is open 24/7
-- **Coffee**: Free coffee machine in the lounge area on the ground floor
-- **Norminette**: Run \`norminette\` on your files to check coding standards
-- **Moulinette**: The automated grading system for your projects
+My AI quota has been exceeded due to popular usage, but I can still provide essential 42 Heilbronn information:
 
-Please try again later or contact the 42 Heilbronn staff for immediate assistance.`;
+**🏫 Campus Information:**
+• **Hours**: Open 24/7 - the cluster never sleeps!
+• **Coffee**: Free machine in the ground floor lounge
+• **WiFi**: High-speed campus internet
+• **Study Areas**: Multiple floors with comfortable seating
+
+**💻 Academic Resources:**
+• **Norminette**: Run \`norminette\` to check coding standards
+• **Moulinette**: Automated project grading system
+• **Intranet**: Access campus resources via computers
+• **Peer Evaluation**: Submit through the intranet
+
+**🎯 I specialize in 42 Heilbronn topics only.** For general questions, please use Google!
+
+Try again in a few minutes, or contact 42 Heilbronn staff for immediate assistance. 🚀`;
       
       return res.json({ reply: fallbackReply });
     }
     
-    res.status(500).json({ 
-      error: 'Failed to process chat request',
-      details: error.message 
-    });
+    // General error fallback
+    const generalFallback = `🔧 **42Butler is temporarily experiencing technical difficulties.**
+
+I'm working to get back online, but here's some essential 42 Heilbronn information:
+
+**📚 Quick Campus Guide:**
+• **Hours**: Open 24/7 for coding
+• **Coffee**: Free machine in ground floor lounge
+• **Tools**: Use \`norminette\` for code standards
+• **Grading**: Moulinette handles project evaluation
+
+**🎯 I focus on 42 Heilbronn topics only.** For general questions, please use Google.
+
+Please try again in a few moments, or contact campus staff for immediate help! 🤝`;
+    
+    return res.json({ reply: generalFallback });
   }
 });
 
