@@ -62,18 +62,15 @@ export default function App() {
             </div>
             
             <div className="flex items-center space-x-4">
-              <nav className="hidden md:flex items-center space-x-2">
-                <NavLink to="/" className={({isActive}) => `relative text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'text-blue-700' : 'text-gray-700 hover:text-gray-900'}`}>
+              <nav className="hidden md:flex items-center space-x-3">
+                <NavLink to="/" className={({isActive}) => `relative text-base font-semibold px-4 py-3 rounded-xl transition ${isActive ? 'text-blue-700 bg-blue-50' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'}`}>
                   Home
-                  <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </NavLink>
-                <NavLink to="/about" className={({isActive}) => `relative text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'text-blue-700' : 'text-gray-700 hover:text-gray-900'}`}>
+                <NavLink to="/about" className={({isActive}) => `relative text-base font-semibold px-4 py-3 rounded-xl transition ${isActive ? 'text-blue-700 bg-blue-50' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'}`}>
                   About
-                  <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </NavLink>
-                <NavLink to="/team" className={({isActive}) => `relative text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'text-blue-700' : 'text-gray-700 hover:text-gray-900'}`}>
+                <NavLink to="/team" className={({isActive}) => `relative text-base font-semibold px-4 py-3 rounded-xl transition ${isActive ? 'text-blue-700 bg-blue-50' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'}`}>
                   Team
-                  <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </NavLink>
               </nav>
               <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2 rounded-lg border border-gray-200 bg-white/70 hover:bg-white">
@@ -85,9 +82,9 @@ export default function App() {
           </div>
           {menuOpen && (
             <div className="md:hidden mt-4 bg-white/80 rounded-2xl border border-white/50 shadow p-2">
-              <NavLink onClick={() => setMenuOpen(false)} to="/" className={({isActive}) => `block px-4 py-2 rounded-lg ${isActive ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}>Home</NavLink>
-              <NavLink onClick={() => setMenuOpen(false)} to="/about" className={({isActive}) => `block px-4 py-2 rounded-lg ${isActive ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}>About</NavLink>
-              <NavLink onClick={() => setMenuOpen(false)} to="/team" className={({isActive}) => `block px-4 py-2 rounded-lg ${isActive ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}>Team</NavLink>
+              <NavLink onClick={() => setMenuOpen(false)} to="/" className={({isActive}) => `block px-4 py-3 rounded-lg text-base font-semibold ${isActive ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}>Home</NavLink>
+              <NavLink onClick={() => setMenuOpen(false)} to="/about" className={({isActive}) => `block px-4 py-3 rounded-lg text-base font-semibold ${isActive ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}>About</NavLink>
+              <NavLink onClick={() => setMenuOpen(false)} to="/team" className={({isActive}) => `block px-4 py-3 rounded-lg text-base font-semibold ${isActive ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}>Team</NavLink>
             </div>
           )}
         </div>

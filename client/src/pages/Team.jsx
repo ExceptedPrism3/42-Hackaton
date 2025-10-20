@@ -11,9 +11,9 @@ const team = [
 
 export default function Team() {
   return (
-    <div>
+    <div className="text-center">
       <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">Meet the Team</h2>
-      <p className="text-gray-600 mt-2">We’re a team of six focused on student experience and practical tools.</p>
+      <p className="text-gray-600 mt-2">We're a team of six focused on student experience and practical tools.</p>
 
       <div className="grid xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mt-6">
         {team.map((member, idx) => (
