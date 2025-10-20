@@ -4,9 +4,9 @@ export default function About() {
   return (
     <div className="relative">
       <div className="mb-8 rounded-3xl overflow-hidden border border-white/40 bg-white/70 backdrop-blur-xl">
-        <div className="p-10 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white">
+        <div className="p-10 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white text-center">
           <h2 className="text-4xl font-extrabold tracking-tight">About 42Butler</h2>
-          <p className="mt-2 text-blue-50 max-w-3xl">Your 42 Heilbronn companion for campus info, project guidance, and workflows — laser-focused on 42 content to keep you productive.</p>
+          <p className="mt-2 text-blue-50 max-w-3xl mx-auto">Your 42 Heilbronn companion for campus info, project guidance, and workflows — laser-focused on 42 content to keep you productive.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 p-8">
           <div className="p-6 rounded-2xl bg-white/90 border border-gray-100 shadow-sm">
@@ -20,6 +20,16 @@ export default function About() {
           <div className="p-6 rounded-2xl bg-white/90 border border-gray-100 shadow-sm">
             <h3 className="font-semibold text-gray-900">Scope</h3>
             <p className="text-gray-600 mt-2">42-only content. Outside scope? We direct you to Google instead.</p>
+          </div>
+        </div>
+        <div className="px-8 pb-8">
+          <div className="flex flex-wrap items-center justify-center gap-4 opacity-90">
+            <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" className="h-8 w-8" />
+            <img src="https://cdn.simpleicons.org/vite/646CFF" alt="Vite" className="h-8 w-8" />
+            <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind" className="h-8 w-8" />
+            <img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="Node.js" className="h-8 w-8" />
+            <img src="https://cdn.simpleicons.org/express/000000" alt="Express" className="h-8 w-8" />
+            <img src="https://cdn.simpleicons.org/openai/412991" alt="OpenAI" className="h-8 w-8" />
           </div>
         </div>
       </div>

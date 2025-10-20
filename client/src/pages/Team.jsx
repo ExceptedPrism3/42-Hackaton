@@ -17,10 +17,10 @@ export default function Team() {
 
       <div className="grid xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mt-6">
         {team.map((member) => (
-          <div key={member.name} className="group p-4 rounded-2xl bg-white/70 backdrop-blur-xl border border-white/40 shadow hover:shadow-lg transition">
-            <div className="flex flex-col items-center text-center">
+          <div key={member.name} className="group p-4 rounded-2xl bg-white/70 backdrop-blur-xl border border-white/40 shadow hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02]">
+            <div className="flex flex-col items-center text-center animate-float-slow">
               <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
-                <img src={member.avatarUrl} alt={member.name} className="w-full h-full object-cover" />
+                <img src={member.avatarUrl} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition" />
               </div>
               <div className="mt-3 font-semibold text-gray-900">{member.name}</div>
               <div className="text-sm text-gray-600">{member.role}</div>
