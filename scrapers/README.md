@@ -192,6 +192,6 @@ Set up a cron job for regular updates:
 
 ---
 
-**Built for 42 Heilbronn AI Chatbot**
+**Built for 42Butler**
 
 *Automatically gathering comprehensive knowledge for intelligent student assistance.*

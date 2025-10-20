@@ -113,6 +113,13 @@ export default function App() {
               <span>•</span>
               <a href="/team" className="hover:text-gray-700">Team</a>
               <span>•</span>
+              <button 
+                onClick={() => window.open('https://github.com/ExceptedPrism3/42-Hackaton/issues/new?title=Bug Report: False Information&body=Please describe the incorrect information you found and what the correct information should be.', '_blank')}
+                className="hover:text-gray-700 underline"
+              >
+                🐛 Report Bug
+              </button>
+              <span>•</span>
               <span>© 2025 42Butler</span>
             </div>
           </div>

@@ -3,7 +3,7 @@
 ![React](https://img.shields.io/badge/React-18+-blue.svg)
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-orange.svg)
 
-# 42 Heilbronn AI Chatbot
+# 42Butler
 
 A modern, intelligent chatbot designed specifically for 42 Heilbronn students. Built with React, Node.js, and OpenAI integration, it provides instant answers about campus life, coding standards, and student resources.
 
@@ -15,6 +15,13 @@ A modern, intelligent chatbot designed specifically for 42 Heilbronn students. B
 - 💬 **Modern Chat UI**: Beautiful, responsive interface with real-time messaging
 - 🔄 **Auto-Updates**: Easy knowledge base updates from Notion content
 - 📱 **Mobile-Friendly**: Works perfectly on all devices
+- 🛡️ **Content Filtering**: Automatically filters inappropriate language
+- 🔗 **Smart Links**: Clickable links for Google, search engines, and 42 Heilbronn
+- 📝 **Markdown Support**: Bold text, code blocks, and formatted messages
+- ⚠️ **Development Mode**: Clear disclaimer about AI being in development
+- 🐛 **Bug Reporting**: Easy bug report button for false information
+- 🎨 **Animated UI**: Smooth animations and hover effects
+- 📊 **Error Handling**: Graceful fallback messages when server is down
 
 ## 🏗️ Project Structure
 
@@ -291,6 +298,40 @@ CMD ["npm", "start"]
 - **OpenAI API**: [Documentation](https://platform.openai.com/docs)
 - **React**: [Official Docs](https://reactjs.org/docs)
 - **Tailwind CSS**: [Documentation](https://tailwindcss.com/docs)
+
+## 🛡️ Content Safety
+
+### Inappropriate Language Filtering
+
+The bot automatically filters inappropriate language and responds professionally:
+
+- **Profanity Detection**: Filters common inappropriate words
+- **Professional Response**: Redirects to 42 topics when inappropriate content is detected
+- **Respectful Communication**: Maintains professional tone throughout
+
+### Development Disclaimer
+
+⚠️ **Important**: This AI is still in development. Users are reminded to:
+- Always verify information with peers
+- Check official sources for critical information
+- Report any incorrect information using the bug report button
+
+## 🐛 Bug Reporting
+
+### How to Report Issues
+
+1. **Click the "🐛 Report Bug" button** in the footer
+2. **Fill out the GitHub issue form** with:
+   - Description of the incorrect information
+   - What the correct information should be
+   - Any additional context
+
+### What Gets Fixed
+
+- ❌ **False Information**: Incorrect campus details, hours, procedures
+- 🔧 **Technical Issues**: Server errors, UI problems, broken links
+- 📝 **Content Updates**: Outdated information, missing details
+- 🎯 **42-Specific Issues**: Anything related to 42 Heilbronn accuracy
 
 ## 🤝 Contributing
 

@@ -17,15 +17,7 @@ console.log('- Uses web search to find relevant information');
 console.log('- Combines automated and manual scraping');
 console.log('- Creates comprehensive knowledge base\n');
 
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-rl.question('Press Enter to start comprehensive scraping... ', async () => {
-  rl.close();
-  
+(async () => {
   const scraper = new Heilbronn42Scraper();
   
   try {
@@ -33,4 +25,4 @@ rl.question('Press Enter to start comprehensive scraping... ', async () => {
   } catch (error) {
     console.error('❌ Scraping failed:', error);
   }
-});
+})();

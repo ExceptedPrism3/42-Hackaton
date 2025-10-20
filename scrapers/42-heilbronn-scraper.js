@@ -180,6 +180,33 @@ class Heilbronn42Scraper {
     console.log(`\n✅ Knowledge base updated with ${this.allContent.length} sources`);
   }
 
+  async scrapeNotionPage(url) {
+    try {
+      console.log(` Scraping Notion page: ${url}`);
+      const response = await axios.get(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        },
+        timeout: 10000
+      });
+
+      const $ = cheerio.load(response.data);
+      const title = $('title').text();
+      $('script, style, nav, header, footer, .ad, .advertisement').remove();
+      const content = $('body').text().trim();
+
+      if (content.length > 100) {
+        this.addContent(url, title, content);
+        console.log(`✅ Scraped Notion Page: ${title} (${content.length} chars)`);
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error(`❌ Failed to scrape Notion page ${url}:`, error.message);
+      return false;
+    }
+  }
+
   // Main scraping function
   async scrapeAll() {
     console.log('🚀 Starting comprehensive 42 Heilbronn data collection...\n');
@@ -196,7 +223,11 @@ class Heilbronn42Scraper {
       'norminette',
       'moulinette',
       'projects',
-      'curriculum'
+      'curriculum',
+      'admissions',
+      'piscine',
+      'events',
+      'contact'
     ];
 
     for (const term of searchTerms) {
@@ -204,7 +235,7 @@ class Heilbronn42Scraper {
       console.log(`🔍 Found ${searchResults.length} results for: ${term}`);
       
       // Scrape the most relevant results
-      for (const result of searchResults.slice(0, 2)) {
+      for (const result of searchResults.slice(0, 3)) {
         if (result.url && !result.url.includes('duckduckgo.com')) {
           await this.scrapeWebsite(result.url, result.title);
           await new Promise(resolve => setTimeout(resolve, 3000));
@@ -222,6 +253,14 @@ class Heilbronn42Scraper {
       {
         url: 'https://42.fr',
         title: '42 School Official Website'
+      },
+      {
+        url: 'https://www.linkedin.com/school/42-heilbronn/',
+        title: '42 Heilbronn LinkedIn'
+      },
+      {
+        url: 'https://www.instagram.com/42heilbronn/',
+        title: '42 Heilbronn Instagram'
       }
     ];
 
@@ -230,74 +269,21 @@ class Heilbronn42Scraper {
       await new Promise(resolve => setTimeout(resolve, 2000));
     }
 
-    // 3. Interactive Notion scraping
-    console.log('\n📋 Phase 3: Interactive Notion scraping...');
-    console.log('This will open Safari for you to manually add Notion content.');
-    
-    const readline = require('readline');
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout
-    });
+    // 3. Automated Notion scraping
+    console.log('\n📋 Phase 3: Automated Notion scraping...');
+    const notionUrls = [
+      // Add your Notion URLs here. For example:
+      // 'https://www.notion.so/your-workspace/Page-Title-1234567890abcdef1234567890abcdef'
+    ];
 
-    let pageCount = 0;
-    
-    function askForNotionPage() {
-      pageCount++;
-      rl.question(`\n📄 Notion Page ${pageCount} - Enter URL (or "done" to finish): `, async (url) => {
-        if (url.toLowerCase() === 'done') {
-          rl.close();
-          return;
-        }
-        
-        if (url.trim()) {
-          rl.question('📝 Enter page title: ', async (title) => {
-            console.log(`\n🌐 Opening Safari with: ${url}`);
-            
-            try {
-              await this.openSafari(url);
-              console.log('✅ Safari opened successfully!');
-              console.log('📋 Instructions:');
-              console.log('1. Copy all content from the Safari page (Cmd+A, Cmd+C)');
-              console.log('2. Paste it below and press Enter twice when done');
-              
-              let content = '';
-              let emptyLines = 0;
-              
-              rl.on('line', (line) => {
-                if (line.trim() === '') {
-                  emptyLines++;
-                  if (emptyLines >= 2) {
-                    if (content.trim()) {
-                      this.addContent(url, title, content);
-                    }
-                    askForNotionPage();
-                    return;
-                  }
-                } else {
-                  emptyLines = 0;
-                  content += line + '\n';
-                }
-              });
-              
-            } catch (error) {
-              console.error('❌ Error opening Safari:', error.message);
-              askForNotionPage();
-            }
-          });
-        } else {
-          console.log('❌ Please enter a valid URL');
-          askForNotionPage();
-        }
-      });
+    if (notionUrls.length === 0) {
+      console.log('No Notion URLs provided. Skipping Notion scraping.');
+    } else {
+      for (const url of notionUrls) {
+        await this.scrapeNotionPage(url);
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      }
     }
-    
-    askForNotionPage();
-
-    // Wait for user to finish Notion scraping
-    await new Promise(resolve => {
-      rl.on('close', resolve);
-    });
 
     // 4. Save everything
     await this.saveToKnowledgeBase();
