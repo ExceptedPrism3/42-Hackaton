@@ -149,9 +149,9 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className={`absolute right-3 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white p-3 rounded-xl hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-500 shadow-lg hover:shadow-xl hover:scale-105 ${input.trim() ? 'animate-bounce' : ''}`}
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white p-3 rounded-xl hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
-              <svg className={`w-6 h-6 transition-all duration-500 ease-in-out ${input.trim() ? '-rotate-90' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-6 h-6 transition-transform duration-500 ease-in-out ${input.trim() ? '-rotate-90' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
             </button>
