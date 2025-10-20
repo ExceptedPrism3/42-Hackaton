@@ -117,82 +117,82 @@ Please try again in a few moments, or contact campus staff for immediate help! �
                 </svg>
               </div>
             </div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
+            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
               Welcome to 42Butler AI
             </h3>
-            <p className="text-gray-600 text-base mb-4 max-w-md mx-auto">
+            <p className="text-gray-600 text-sm mb-3 max-w-md mx-auto">
               Ask me anything about campus life, coding standards, or general 42 questions.
             </p>
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 max-w-2xl mx-auto">
-              <div className="flex items-start space-x-3">
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4 max-w-xl mx-auto">
+              <div className="flex items-start space-x-2">
                 <div className="flex-shrink-0">
-                  <svg className="w-5 h-5 text-amber-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-amber-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-amber-800 mb-1">⚠️ Development Mode</h4>
-                  <p className="text-sm text-amber-700">
+                  <h4 className="text-xs font-semibold text-amber-800 mb-1">⚠️ Development Mode</h4>
+                  <p className="text-xs text-amber-700">
                     This AI is still in development. Please <strong>always verify information with your peers</strong> and official sources. 
                     Report any incorrect information using the button below.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <div className="grid grid-cols-2 gap-3 max-w-xl mx-auto">
               <button 
                 onClick={() => setInput("What are the opening hours?")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-blue-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl p-3 text-left hover:bg-blue-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors text-sm">
                     📅
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800">Opening hours</div>
-                    <div className="text-sm text-gray-500">Campus schedule info</div>
+                    <div className="font-semibold text-gray-800 text-xs">Opening hours</div>
+                    <div className="text-xs text-gray-500">Campus schedule</div>
                   </div>
                 </div>
               </button>
               <button 
                 onClick={() => setInput("Tell me about norminette")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-purple-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl p-3 text-left hover:bg-purple-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center group-hover:bg-purple-200 transition-colors">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center group-hover:bg-purple-200 transition-colors text-sm">
                     🔍
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800">Norminette help</div>
-                    <div className="text-sm text-gray-500">Coding standards</div>
+                    <div className="font-semibold text-gray-800 text-xs">Norminette help</div>
+                    <div className="text-xs text-gray-500">Coding standards</div>
                   </div>
                 </div>
               </button>
               <button 
                 onClick={() => setInput("Where is the coffee machine?")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-cyan-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl p-3 text-left hover:bg-cyan-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-cyan-100 rounded-xl flex items-center justify-center group-hover:bg-cyan-200 transition-colors">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-cyan-100 rounded-lg flex items-center justify-center group-hover:bg-cyan-200 transition-colors text-sm">
                     ☕
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800">Coffee machine</div>
-                    <div className="text-sm text-gray-500">Campus amenities</div>
+                    <div className="font-semibold text-gray-800 text-xs">Coffee machine</div>
+                    <div className="text-xs text-gray-500">Campus amenities</div>
                   </div>
                 </div>
               </button>
               <button 
                 onClick={() => setInput("What is moulinette?")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-pink-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl p-3 text-left hover:bg-pink-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-pink-100 rounded-xl flex items-center justify-center group-hover:bg-pink-200 transition-colors">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-pink-100 rounded-lg flex items-center justify-center group-hover:bg-pink-200 transition-colors text-sm">
                     🤖
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800">Moulinette info</div>
-                    <div className="text-sm text-gray-500">Grading system</div>
+                    <div className="font-semibold text-gray-800 text-xs">Moulinette info</div>
+                    <div className="text-xs text-gray-500">Grading system</div>
                   </div>
                 </div>
               </button>
