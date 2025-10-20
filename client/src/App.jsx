@@ -107,6 +107,8 @@ export default function App() {
               Built with ❤️ for 42 Heilbronn students
             </p>
             <div className="flex items-center gap-3 text-xs text-gray-500">
+              <a href="/" className="hover:text-gray-700">Home</a>
+              <span>•</span>
               <a href="/about" className="hover:text-gray-700">About</a>
               <span>•</span>
               <a href="/team" className="hover:text-gray-700">Team</a>

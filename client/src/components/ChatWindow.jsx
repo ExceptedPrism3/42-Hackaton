@@ -41,25 +41,6 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
 
   return (
     <div className="bg-white/80 backdrop-blur-xl border border-white/30 rounded-3xl shadow-2xl flex flex-col h-[calc(100vh-170px)] overflow-hidden relative">
-      {/* Chat Header */}
-      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white p-6 rounded-t-3xl relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 via-purple-600/90 to-cyan-600/90"></div>
-        <div className="relative flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold">AI Assistant</h3>
-              <p className="text-blue-100 text-sm">Ready to help with 42 Heilbronn questions</p>
-            </div>
-          </div>
-          {/* Status indicator removed for cleaner header */}
-        </div>
-      </div>
-
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-gray-50/30 to-white/50">
         {messages.length === 0 && (
