@@ -51,7 +51,10 @@ export default function App() {
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
                   <span className="text-white font-bold text-lg">42</span>
                 </div>
-                <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full border-2 border-white ${isOnline ? 'bg-green-400' : 'bg-red-400'} animate-pulse`}></div>
+                <div 
+                  className={`absolute -top-1 -right-1 w-3 h-3 rounded-full border-2 border-white ${isOnline ? 'bg-green-400' : 'bg-red-400'} animate-pulse cursor-pointer`}
+                  title={isOnline ? 'Online' : 'Drowned'}
+                ></div>
               </div>
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
