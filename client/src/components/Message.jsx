@@ -14,6 +14,16 @@ function renderMarkdown(text) {
     // Handle inline code `code`
     processedLine = processedLine.replace(/`(.*?)`/g, '<code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">$1</code>');
     
+    // Handle clickable links for search engines
+    processedLine = processedLine.replace(/Google/g, '<a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">Google</a>');
+    processedLine = processedLine.replace(/Bing/g, '<a href="https://www.bing.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">Bing</a>');
+    processedLine = processedLine.replace(/DuckDuckGo/g, '<a href="https://duckduckgo.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">DuckDuckGo</a>');
+    processedLine = processedLine.replace(/search engines/g, '<a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">search engines</a>');
+    
+    // Handle other common links
+    processedLine = processedLine.replace(/42 Heilbronn/g, '<a href="https://42heilbronn.de" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">42 Heilbronn</a>');
+    processedLine = processedLine.replace(/42 school/g, '<a href="https://42heilbronn.de" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">42 school</a>');
+    
     // Handle bullet points
     if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
       return (
