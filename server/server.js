@@ -147,10 +147,60 @@ ${knowledgeBase}
           fallbackReply = `🕒 **Opening Hours**: The 42 Heilbronn cluster is open 24/7, so you can code anytime! The campus never sleeps, just like your dedication to learning. 💪`;
         } else if (userMessage.includes('coffee') || userMessage.includes('machine')) {
           fallbackReply = `☕ **Coffee Machine**: Located in the lounge area on the ground floor - it's completely free! Perfect for those late-night coding sessions. The coffee is surprisingly good for a free machine! ☕`;
+        } else if (userMessage.includes('mensa') || userMessage.includes('eat') || userMessage.includes('food') || userMessage.includes('dining')) {
+          fallbackReply = `🍽️ **Mensa Information**:
+
+**Location**: Ground floor, near the main entrance
+**Hours**: 
+• Monday-Friday: 11:30 AM - 2:00 PM
+• Saturday-Sunday: Closed
+• Special events may have extended hours
+
+**What's Available**:
+• Hot meals (lunch only)
+• Vegetarian options
+• Student-friendly prices
+• Fresh daily menu
+
+**After Piscine**: Yes! You can eat at Mensa after finishing your Piscine projects. It's a great place to refuel and socialize with other students.
+
+**Weekend Access**: Unfortunately, Mensa is closed on weekends, but there are plenty of nearby restaurants and cafes in Heilbronn city center.
+
+**Pro Tip**: Check the daily menu on the intranet for today's specials! 🍽️`;
         } else if (userMessage.includes('norminette')) {
           fallbackReply = `🔍 **Norminette**: Your coding standard checker! Run \`norminette\` on your files to check compliance. It's strict but fair - follow the 42 coding standards and you'll be fine. Remember: clean code is good code! 📝`;
         } else if (userMessage.includes('moulinette')) {
           fallbackReply = `🤖 **Moulinette**: The automated grading system that evaluates your projects. It's merciless but fair - if your code works and follows standards, you'll pass. No shortcuts, just solid programming! ⚡`;
+        } else if (userMessage.includes('bash') || userMessage.includes('command') || userMessage.includes('ubuntu') || userMessage.includes('terminal')) {
+          fallbackReply = `💻 **Bash Commands for Ubuntu Development**
+
+Here are essential bash commands for 42 projects:
+
+**File Operations:**
+• \`ls -la\` - List all files with details
+• \`find . -name "*.c"\` - Find C files
+• \`grep -r "text" .\` - Search in files
+• \`tree\` - Show directory structure
+
+**Development Tools:**
+• \`gcc -Wall -Wextra -Werror file.c\` - Compile with strict flags
+• \`norminette *.c\` - Check coding standards
+• \`make\` - Build project
+• \`valgrind ./a.out\` - Check memory leaks
+
+**System Info:**
+• \`ps aux | grep process\` - List processes
+• \`du -sh *\` - Check disk usage
+• \`df -h\` - Show disk space
+• \`free -h\` - Check memory
+
+**Git Commands:**
+• \`git status\` - Check repository status
+• \`git add .\` - Stage all changes
+• \`git commit -m "message"\` - Commit changes
+• \`git push\` - Push to remote
+
+These commands will help you navigate and develop efficiently! 🚀`;
         } else if (userMessage.includes('help') || userMessage.includes('question')) {
           fallbackReply = `🤝 **I'm here to help with 42 Heilbronn questions!** While my AI quota is currently exceeded, I can still provide basic campus info:
 
