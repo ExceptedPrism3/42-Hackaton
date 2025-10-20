@@ -117,12 +117,15 @@ What specific 42-related question can I help you with? 🚀`;
 
 IMPORTANT RULES:
 - ONLY answer questions about 42 Heilbronn, 42 school, coding standards, campus life, or 42-specific topics
+- Provide SPECIFIC, FOCUSED answers - don't overwhelm users with too much information
+- For bash/terminal questions, give ONLY the most relevant commands for their specific question
 - If asked about general topics (weather, news, general programming, etc.), politely redirect them to Google
 - Use this knowledge base about 42 Heilbronn:
 
 ${knowledgeBase}
 
 - Be helpful and friendly but stay focused on 42 Heilbronn topics only
+- Keep responses concise and relevant to the specific question asked
 - If someone asks about non-42 topics, say: "I'm specialized for 42 Heilbronn questions only. For general topics, please use Google or other search engines."`;
 
       const completion = await openai.chat.completions.create({
@@ -172,35 +175,87 @@ ${knowledgeBase}
         } else if (userMessage.includes('moulinette')) {
           fallbackReply = `🤖 **Moulinette**: The automated grading system that evaluates your projects. It's merciless but fair - if your code works and follows standards, you'll pass. No shortcuts, just solid programming! ⚡`;
         } else if (userMessage.includes('bash') || userMessage.includes('command') || userMessage.includes('ubuntu') || userMessage.includes('terminal')) {
-          fallbackReply = `💻 **Bash Commands for Ubuntu Development**
+          // Provide focused responses based on specific questions
+          if (userMessage.includes('invisible') || userMessage.includes('hidden') || userMessage.includes('list files')) {
+            fallbackReply = `💻 **Listing Hidden Files in Ubuntu**
 
-Here are essential bash commands for 42 projects:
+To list invisible/hidden files in a folder:
+
+**Main Command:**
+\`ls -la\` - Lists all files including hidden ones (starting with .)
+
+**Alternative:**
+\`ls -a\` - Shorter version, also shows hidden files
+
+**Explanation:**
+• Hidden files in Linux start with a dot (.)
+• \`-l\` flag shows detailed information (permissions, size, date)
+• \`-a\` flag shows all files including hidden ones
+
+**Example Usage:**
+\`ls -la\` - Shows all files with details
+\`ls -la /home/user\` - Shows all files in specific directory
+
+This will show files like .bashrc, .git, .config, etc. that are normally hidden! 🔍`;
+          } else if (userMessage.includes('find') || userMessage.includes('search')) {
+            fallbackReply = `🔍 **Finding Files in Ubuntu**
+
+**Find Files by Name:**
+\`find . -name "*.c"\` - Find all C files
+\`find . -name "filename"\` - Find specific file
+
+**Search Text in Files:**
+\`grep -r "text" .\` - Search for text in all files
+\`grep -r "main" . --include="*.c"\` - Search only in C files
+
+**Useful Options:**
+• \`-type f\` - Only files (not directories)
+• \`-name\` - Search by filename
+• \`-r\` - Search recursively
+• \`--include\` - Filter by file type
+
+These commands will help you locate files and content efficiently! 🎯`;
+          } else if (userMessage.includes('directory') || userMessage.includes('folder') || userMessage.includes('structure')) {
+            fallbackReply = `📁 **Directory Structure Commands**
+
+**Show Directory Tree:**
+\`tree\` - Display directory structure as a tree
+\`tree -L 2\` - Show only 2 levels deep
+
+**List Directory Contents:**
+\`ls -la\` - List all files with details
+\`ls -la\` - Show hidden files too
+
+**Navigate Directories:**
+\`cd directory_name\` - Enter directory
+\`cd ..\` - Go up one level
+\`pwd\` - Show current directory path
+
+**Create Directories:**
+\`mkdir folder_name\` - Create new directory
+\`mkdir -p path/to/folder\` - Create nested directories
+
+These commands will help you navigate and understand your file structure! 📂`;
+          } else {
+            fallbackReply = `💻 **Essential Bash Commands for Ubuntu**
 
 **File Operations:**
-• \`ls -la\` - List all files with details
+• \`ls -la\` - List all files including hidden ones
 • \`find . -name "*.c"\` - Find C files
 • \`grep -r "text" .\` - Search in files
-• \`tree\` - Show directory structure
 
 **Development Tools:**
 • \`gcc -Wall -Wextra -Werror file.c\` - Compile with strict flags
 • \`norminette *.c\` - Check coding standards
 • \`make\` - Build project
-• \`valgrind ./a.out\` - Check memory leaks
 
 **System Info:**
 • \`ps aux | grep process\` - List processes
 • \`du -sh *\` - Check disk usage
 • \`df -h\` - Show disk space
-• \`free -h\` - Check memory
 
-**Git Commands:**
-• \`git status\` - Check repository status
-• \`git add .\` - Stage all changes
-• \`git commit -m "message"\` - Commit changes
-• \`git push\` - Push to remote
-
-These commands will help you navigate and develop efficiently! 🚀`;
+Ask me about specific commands for more detailed help! 🚀`;
+          }
         } else if (userMessage.includes('help') || userMessage.includes('question')) {
           fallbackReply = `🤝 **I'm here to help with 42 Heilbronn questions!** While my AI quota is currently exceeded, I can still provide basic campus info:
 

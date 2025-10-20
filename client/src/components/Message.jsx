@@ -99,45 +99,98 @@ function renderMarkdown(text) {
 
 // Render bash commands with copy buttons
 function renderBashCommands(text) {
-  const commands = [
-    {
-      command: 'ls -la',
-      description: 'List all files and directories with detailed information',
-      example: 'ls -la /home/user/project'
-    },
-    {
-      command: 'find . -name "*.c"',
-      description: 'Find all C files in current directory and subdirectories',
-      example: 'find . -name "*.c" -type f'
-    },
-    {
-      command: 'grep -r "function_name" .',
-      description: 'Search for text in all files recursively',
-      example: 'grep -r "main" . --include="*.c"'
-    },
-    {
-      command: 'tree',
-      description: 'Display directory structure as a tree',
-      example: 'tree -L 2'
-    },
-    {
-      command: 'du -sh *',
-      description: 'Show disk usage of files and directories',
-      example: 'du -sh /home/user/project'
-    },
-    {
-      command: 'ps aux | grep process_name',
-      description: 'List running processes and filter by name',
-      example: 'ps aux | grep gcc'
-    }
-  ];
+  // Extract the user's question from the text to provide relevant commands
+  const userQuestion = text.toLowerCase();
+  
+  let relevantCommands = [];
+  
+  if (userQuestion.includes('invisible') || userQuestion.includes('hidden') || userQuestion.includes('list files')) {
+    relevantCommands = [
+      {
+        command: 'ls -la',
+        description: 'List all files including hidden ones (starting with .)',
+        example: 'ls -la'
+      },
+      {
+        command: 'ls -a',
+        description: 'List all files including hidden ones (shorter version)',
+        example: 'ls -a'
+      }
+    ];
+  } else if (userQuestion.includes('find') || userQuestion.includes('search')) {
+    relevantCommands = [
+      {
+        command: 'find . -name "*.c"',
+        description: 'Find all C files in current directory and subdirectories',
+        example: 'find . -name "*.c" -type f'
+      },
+      {
+        command: 'grep -r "text" .',
+        description: 'Search for text in all files recursively',
+        example: 'grep -r "main" . --include="*.c"'
+      }
+    ];
+  } else if (userQuestion.includes('directory') || userQuestion.includes('folder') || userQuestion.includes('structure')) {
+    relevantCommands = [
+      {
+        command: 'tree',
+        description: 'Display directory structure as a tree',
+        example: 'tree -L 2'
+      },
+      {
+        command: 'ls -la',
+        description: 'List all files with detailed information',
+        example: 'ls -la'
+      }
+    ];
+  } else if (userQuestion.includes('disk') || userQuestion.includes('size') || userQuestion.includes('usage')) {
+    relevantCommands = [
+      {
+        command: 'du -sh *',
+        description: 'Show disk usage of files and directories',
+        example: 'du -sh /home/user/project'
+      },
+      {
+        command: 'df -h',
+        description: 'Show disk space usage of filesystems',
+        example: 'df -h'
+      }
+    ];
+  } else if (userQuestion.includes('process') || userQuestion.includes('running')) {
+    relevantCommands = [
+      {
+        command: 'ps aux | grep process_name',
+        description: 'List running processes and filter by name',
+        example: 'ps aux | grep gcc'
+      },
+      {
+        command: 'ps aux',
+        description: 'List all running processes',
+        example: 'ps aux'
+      }
+    ];
+  } else {
+    // Default to a few essential commands if no specific match
+    relevantCommands = [
+      {
+        command: 'ls -la',
+        description: 'List all files including hidden ones',
+        example: 'ls -la'
+      },
+      {
+        command: 'find . -name "*.c"',
+        description: 'Find all C files in current directory',
+        example: 'find . -name "*.c" -type f'
+      }
+    ];
+  }
 
   return (
     <div>
       <p className="text-gray-700 mb-4">
-        Here are some useful bash commands for Ubuntu development:
+        Here are the relevant bash commands for your question:
       </p>
-      {commands.map((cmd, index) => (
+      {relevantCommands.map((cmd, index) => (
         <BashCommand
           key={index}
           command={cmd.command}
