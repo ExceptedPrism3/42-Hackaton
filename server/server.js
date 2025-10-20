@@ -325,6 +325,37 @@ Ask me about specific commands for more detailed help! 🚀`;
 • Academic discussions
 
 **Pro Tip**: The earlier you submit your request, the better chance of approval and getting your preferred time slot! 📧`;
+        } else if (userMessage.includes('collation') || userMessage.includes('clash') || userMessage.includes('clan') || userMessage.includes('team') || userMessage.includes('clans')) {
+          fallbackReply = `⚔️ **Collation Clash - 42 Clan System**:
+
+**What is Collation Clash?**:
+• **Clan System**: 42 has created 3 teams (clans) for students
+• **Regular Events**: Clan competitions and events are held regularly
+• **Rewards**: Winners gain rewards and collation points
+• **Point System**: Points can be redeemed at the end of the period
+
+**How It Works**:
+• Students are divided into 3 clans
+• Regular clan events and competitions
+• Points are awarded based on performance
+• Winners receive rewards and recognition
+• Points can be redeemed for various benefits
+
+**Clan Events**:
+• Coding competitions
+• Team challenges
+• Academic competitions
+• Social events
+• Collaborative projects
+
+**Benefits**:
+• Team building and collaboration
+• Friendly competition
+• Rewards and recognition
+• Community building
+• Skill development
+
+**Pro Tip**: Participate actively in clan events to earn points and build relationships with your clan members! 🏆`;
         } else if (userMessage.includes('ai') || userMessage.includes('chatgpt') || userMessage.includes('assistant') || userMessage.includes('tool')) {
           fallbackReply = `🤖 **AI Tools for 42 Students**:
 
