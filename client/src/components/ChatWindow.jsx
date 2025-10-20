@@ -52,65 +52,65 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
                 </svg>
               </div>
             </div>
-            <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
               Welcome to 42Butler AI
             </h3>
-            <p className="text-gray-600 text-lg mb-8 max-w-lg mx-auto">
+            <p className="text-gray-600 text-base mb-6 max-w-md mx-auto">
               Ask me anything about campus life, coding standards, or general 42 questions.
             </p>
             <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
               <button 
                 onClick={() => setInput("What are the opening hours?")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-5 text-left hover:bg-blue-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-blue-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors text-lg">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
                     📅
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800 text-base">Opening hours</div>
+                    <div className="font-semibold text-gray-800">Opening hours</div>
                     <div className="text-sm text-gray-500">Campus schedule info</div>
                   </div>
                 </div>
               </button>
               <button 
                 onClick={() => setInput("Tell me about norminette")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-5 text-left hover:bg-purple-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-purple-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center group-hover:bg-purple-200 transition-colors text-lg">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center group-hover:bg-purple-200 transition-colors">
                     🔍
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800 text-base">Norminette help</div>
+                    <div className="font-semibold text-gray-800">Norminette help</div>
                     <div className="text-sm text-gray-500">Coding standards</div>
                   </div>
                 </div>
               </button>
               <button 
                 onClick={() => setInput("Where is the coffee machine?")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-5 text-left hover:bg-cyan-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-cyan-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center group-hover:bg-cyan-200 transition-colors text-lg">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-cyan-100 rounded-xl flex items-center justify-center group-hover:bg-cyan-200 transition-colors">
                     ☕
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800 text-base">Coffee machine</div>
+                    <div className="font-semibold text-gray-800">Coffee machine</div>
                     <div className="text-sm text-gray-500">Campus amenities</div>
                   </div>
                 </div>
               </button>
               <button 
                 onClick={() => setInput("What is moulinette?")}
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-5 text-left hover:bg-pink-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 text-left hover:bg-pink-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center group-hover:bg-pink-200 transition-colors text-lg">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-pink-100 rounded-xl flex items-center justify-center group-hover:bg-pink-200 transition-colors">
                     🤖
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800 text-base">Moulinette info</div>
+                    <div className="font-semibold text-gray-800">Moulinette info</div>
                     <div className="text-sm text-gray-500">Grading system</div>
                   </div>
                 </div>
