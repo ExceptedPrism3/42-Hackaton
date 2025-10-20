@@ -90,7 +90,7 @@ export default function App() {
         </div>
       </header>
       
-      <main className="relative flex-1 p-4">
+      <main className="relative flex-1 p-5">
         <div className="max-w-7xl mx-auto">
           <Routes>
             <Route path="/" element={<ChatWindow messages={messages} setMessages={setMessages} isOnline={isOnline} />} />
