@@ -273,6 +273,29 @@ These commands will help you navigate and understand your file structure! 📂`;
 
 Ask me about specific commands for more detailed help! 🚀`;
           }
+        } else if (userMessage.includes('ai') || userMessage.includes('chatgpt') || userMessage.includes('assistant') || userMessage.includes('tool')) {
+          fallbackReply = `🤖 **AI Tools for 42 Students**:
+
+**Recommended AI Tools**:
+• **[CS50.ai](https://cs50.ai)** - CS50's adaptation of ChatGPT for students and teachers (beta) with support from Microsoft and OpenAI. Log in with your GitHub account.
+• **ChatGPT** - OpenAI's popular AI assistant
+• **Claude** - Anthropic's AI assistant
+• **GitHub Copilot** - AI pair programmer for coding
+
+**Fair Use Guidelines**:
+• Use AI as a **learning tool**, not to replace your thinking
+• **Understand the code** before using AI suggestions
+• **Cite your sources** when using AI-generated content
+• **Learn the concepts** behind AI solutions
+• **Use for debugging and learning**, not for direct assignment completion
+
+**Best Practices**:
+• Ask AI to **explain concepts** rather than just give answers
+• Use AI for **code review and optimization**
+• **Practice reasoning** through problems yourself first
+• **Verify AI suggestions** with your own understanding
+
+**Remember**: AI is a powerful learning companion, but your understanding and reasoning skills are what matter most! 🧠`;
         } else if (userMessage.includes('help') || userMessage.includes('question')) {
           fallbackReply = `🤝 **I'm here to help with 42 Heilbronn questions!** While my AI quota is currently exceeded, I can still provide basic campus info:
 

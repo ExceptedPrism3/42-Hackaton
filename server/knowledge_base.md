@@ -23,6 +23,34 @@
 
 **Note**: When in doubt, ask the exam supervisor before the exam starts. Policies can vary by instructor and exam type.
 
+## AI Tools for 42 Students
+
+### Recommended AI Tools
+
+**CS50.ai**: CS50's adaptation of ChatGPT for students and teachers (beta) with support from Microsoft and OpenAI. Log in with your GitHub account at [https://cs50.ai](https://cs50.ai).
+
+**Other Popular AI Tools**:
+- **ChatGPT** - OpenAI's popular AI assistant
+- **Claude** - Anthropic's AI assistant  
+- **GitHub Copilot** - AI pair programmer for coding
+
+### Fair Use Guidelines
+
+**Learning-Focused Approach**:
+- Use AI as a **learning tool**, not to replace your thinking
+- **Understand the code** before using AI suggestions
+- **Cite your sources** when using AI-generated content
+- **Learn the concepts** behind AI solutions
+- **Use for debugging and learning**, not for direct assignment completion
+
+**Best Practices**:
+- Ask AI to **explain concepts** rather than just give answers
+- Use AI for **code review and optimization**
+- **Practice reasoning** through problems yourself first
+- **Verify AI suggestions** with your own understanding
+
+**Important**: AI is a powerful learning companion, but your understanding and reasoning skills are what matter most!
+
 ## Scraper Sources
 
 ### 42 Heilbronn
