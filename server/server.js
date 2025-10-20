@@ -170,6 +170,23 @@ ${knowledgeBase}
 **Weekend Access**: Unfortunately, Mensa is closed on weekends, but there are plenty of nearby restaurants and cafes in Heilbronn city center.
 
 **Pro Tip**: Check the daily menu on the intranet for today's specials! 🍽️`;
+        } else if (userMessage.includes('exam') || userMessage.includes('test') || userMessage.includes('drink') || userMessage.includes('water')) {
+          fallbackReply = `📝 **Exam Policies at 42 Heilbronn**:
+
+**Food & Drink During Exams**:
+• **Most Exams**: Only water is allowed
+• **Final Exams**: Food and drinks are permitted (recent policy change)
+• **Check with your exam supervisor** for specific rules
+
+**General Exam Rules**:
+• Arrive on time - late arrivals may not be admitted
+• Bring your student ID
+• No electronic devices unless specified
+• Follow all instructions from exam supervisors
+
+**Important**: Exam policies can vary by exam type and instructor. Always check the specific exam instructions and ask your supervisor if you're unsure about what's allowed.
+
+**Pro Tip**: When in doubt, ask the exam supervisor before the exam starts! 📚`;
         } else if (userMessage.includes('norminette')) {
           fallbackReply = `🔍 **Norminette**: Your coding standard checker! Run \`norminette\` on your files to check compliance. It's strict but fair - follow the 42 coding standards and you'll be fine. Remember: clean code is good code! 📝`;
         } else if (userMessage.includes('moulinette')) {

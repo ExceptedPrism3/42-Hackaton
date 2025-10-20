@@ -4,6 +4,25 @@
 
 **Total sources:** 8
 
+## Exam Policies
+
+### Food and Drink During Exams
+
+**Important**: Exam policies vary by exam type and have changed over time.
+
+**Current Policy (2025)**:
+- **Most Regular Exams**: Only water is allowed
+- **Final Exams**: Food and drinks are permitted (recent policy change)
+- **Always check with your exam supervisor** for specific rules
+
+**General Exam Rules**:
+- Arrive on time - late arrivals may not be admitted
+- Bring your student ID
+- No electronic devices unless specified
+- Follow all instructions from exam supervisors
+
+**Note**: When in doubt, ask the exam supervisor before the exam starts. Policies can vary by instructor and exam type.
+
 ## Scraper Sources
 
 ### 42 Heilbronn
