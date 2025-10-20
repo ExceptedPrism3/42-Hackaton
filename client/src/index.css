@@ -46,6 +46,14 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
+/* Stagger utilities for animations */
+.delay-0 { animation-delay: 0s; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
 /* Custom gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #3b82f6, #8b5cf6);

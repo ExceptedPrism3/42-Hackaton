@@ -8,6 +8,8 @@ import './index.css';
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [isOnline, setIsOnline] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     // Check server status
@@ -25,6 +27,13 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 6);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 relative overflow-hidden flex flex-col">
       {/* Animated background elements */}
@@ -34,7 +43,7 @@ export default function App() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-purple-400/10 to-blue-400/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
       </div>
 
-      <header className="relative bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-lg">
+      <header className={`sticky top-0 z-40 transition ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-md border-b border-white/20' : 'bg-white/60 backdrop-blur-lg'}`}>
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-6">
@@ -52,15 +61,35 @@ export default function App() {
               </div>
             </div>
             
-            <div className="flex items-center space-x-6">
-              <nav className="hidden sm:flex items-center space-x-4">
-                <NavLink to="/" className={({isActive}) => `text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'bg-blue-600 text-white shadow' : 'text-gray-700 hover:bg-gray-100'}`}>Home</NavLink>
-                <NavLink to="/about" className={({isActive}) => `text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'bg-blue-600 text-white shadow' : 'text-gray-700 hover:bg-gray-100'}`}>About</NavLink>
-                <NavLink to="/team" className={({isActive}) => `text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'bg-blue-600 text-white shadow' : 'text-gray-700 hover:bg-gray-100'}`}>Team</NavLink>
+            <div className="flex items-center space-x-4">
+              <nav className="hidden md:flex items-center space-x-2">
+                <NavLink to="/" className={({isActive}) => `relative text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'text-blue-700' : 'text-gray-700 hover:text-gray-900'}`}>
+                  Home
+                  <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                </NavLink>
+                <NavLink to="/about" className={({isActive}) => `relative text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'text-blue-700' : 'text-gray-700 hover:text-gray-900'}`}>
+                  About
+                  <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                </NavLink>
+                <NavLink to="/team" className={({isActive}) => `relative text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'text-blue-700' : 'text-gray-700 hover:text-gray-900'}`}>
+                  Team
+                  <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                </NavLink>
               </nav>
-              {/* Removed header status pill for cleaner, tighter header */}
+              <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2 rounded-lg border border-gray-200 bg-white/70 hover:bg-white">
+                <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
             </div>
           </div>
+          {menuOpen && (
+            <div className="md:hidden mt-4 bg-white/80 rounded-2xl border border-white/50 shadow p-2">
+              <NavLink onClick={() => setMenuOpen(false)} to="/" className={({isActive}) => `block px-4 py-2 rounded-lg ${isActive ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}>Home</NavLink>
+              <NavLink onClick={() => setMenuOpen(false)} to="/about" className={({isActive}) => `block px-4 py-2 rounded-lg ${isActive ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}>About</NavLink>
+              <NavLink onClick={() => setMenuOpen(false)} to="/team" className={({isActive}) => `block px-4 py-2 rounded-lg ${isActive ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}>Team</NavLink>
+            </div>
+          )}
         </div>
       </header>
       
@@ -93,5 +122,6 @@ export default function App() {
     </div>
   );
 }
+
 
 
