@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import ChatWindow from './components/ChatWindow.jsx';
+import About from './pages/About.jsx';
+import Team from './pages/Team.jsx';
 import './index.css';
 
 export default function App() {
@@ -43,13 +46,18 @@ export default function App() {
               </div>
               <div>
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                  42 Heilbronn AI Assistant
+                  42Butler
                 </h1>
                 <p className="text-gray-600 text-lg">Your intelligent companion for campus life</p>
               </div>
             </div>
             
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-6">
+              <nav className="hidden sm:flex items-center space-x-4">
+                <NavLink to="/" className={({isActive}) => `text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'bg-blue-600 text-white shadow' : 'text-gray-700 hover:bg-gray-100'}`}>Home</NavLink>
+                <NavLink to="/about" className={({isActive}) => `text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'bg-blue-600 text-white shadow' : 'text-gray-700 hover:bg-gray-100'}`}>About</NavLink>
+                <NavLink to="/team" className={({isActive}) => `text-sm font-medium px-3 py-2 rounded-lg transition ${isActive ? 'bg-blue-600 text-white shadow' : 'text-gray-700 hover:bg-gray-100'}`}>Team</NavLink>
+              </nav>
               <div className={`flex items-center space-x-2 px-4 py-2 rounded-full ${isOnline ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                 <div className={`w-3 h-3 rounded-full ${isOnline ? 'bg-green-500' : 'bg-red-500'} animate-pulse`}></div>
                 <span className="text-sm font-medium">{isOnline ? 'Online' : 'Offline'}</span>
@@ -61,18 +69,26 @@ export default function App() {
       
       <main className="relative flex-1 p-6">
         <div className="max-w-7xl mx-auto">
-          <ChatWindow messages={messages} setMessages={setMessages} isOnline={isOnline} />
+          <Routes>
+            <Route path="/" element={<ChatWindow messages={messages} setMessages={setMessages} isOnline={isOnline} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/team" element={<Team />} />
+          </Routes>
         </div>
       </main>
       
-      <footer className="relative bg-white/40 backdrop-blur-xl border-t border-white/20">
-        <div className="max-w-7xl mx-auto px-6 py-3">
-          <div className="flex items-center justify-between">
-            <p className="text-gray-600 text-sm">
+      <footer className="relative bg-white/50 backdrop-blur-xl border-t border-white/20">
+        <div className="max-w-7xl mx-auto px-6 py-2">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <p className="text-gray-600 text-xs">
               Built with ❤️ for 42 Heilbronn students
             </p>
-            <div className="text-xs text-gray-400">
-              © 2024 42 Heilbronn
+            <div className="flex items-center gap-3 text-xs text-gray-500">
+              <a href="/about" className="hover:text-gray-700">About</a>
+              <span>•</span>
+              <a href="/team" className="hover:text-gray-700">Team</a>
+              <span>•</span>
+              <span>© 2025 42Butler</span>
             </div>
           </div>
         </div>
