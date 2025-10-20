@@ -1,5 +1,36 @@
 import React from 'react';
 
+// Simple markdown renderer for basic formatting
+function renderMarkdown(text) {
+  if (!text) return '';
+  
+  // Split by lines to handle line breaks
+  const lines = text.split('\n');
+  
+  return lines.map((line, index) => {
+    // Handle bold text **text**
+    let processedLine = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Handle inline code `code`
+    processedLine = processedLine.replace(/`(.*?)`/g, '<code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">$1</code>');
+    
+    // Handle bullet points
+    if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
+      return (
+        <div key={index} className="flex items-start">
+          <span className="text-lg mr-2">•</span>
+          <span dangerouslySetInnerHTML={{ __html: processedLine.replace(/^[•-]\s*/, '') }} />
+        </div>
+      );
+    }
+    
+    // Handle regular lines
+    return (
+      <div key={index} dangerouslySetInnerHTML={{ __html: processedLine }} />
+    );
+  });
+}
+
 export default function Message({ role, content }) {
   const isUser = role === 'user';
   
@@ -30,7 +61,7 @@ export default function Message({ role, content }) {
             : 'bg-white/90 border border-gray-200/50 text-gray-800'
         }`}>
           <div className="whitespace-pre-wrap text-base leading-relaxed">
-            {content}
+            {renderMarkdown(content)}
           </div>
           <div className={`text-xs mt-3 font-medium ${
             isUser ? 'text-blue-100' : 'text-gray-500'

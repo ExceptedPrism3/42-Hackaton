@@ -26,13 +26,78 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: nextMessages }),
       });
-      if (!res.ok) throw new Error('Request failed');
+      
+      if (!res.ok) {
+        // Try to get error details from server
+        try {
+          const errorData = await res.json();
+          throw new Error(errorData.error || 'Server error');
+        } catch {
+          throw new Error(`Server error: ${res.status}`);
+        }
+      }
+      
       const data = await res.json();
       setMessages([...nextMessages, { role: 'assistant', content: data.reply }]);
     } catch (err) {
+      console.error('Chat error:', err);
+      
+      // Provide better error messages based on the error type
+      let errorMessage = '';
+      
+      if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
+        errorMessage = `🔧 **42Butler is currently offline.**
+
+I'm temporarily unable to connect to my server, but here's some essential 42 Heilbronn information:
+
+**📚 Campus Essentials:**
+• **Hours**: Open 24/7 for coding sessions
+• **Coffee**: Free machine in the ground floor lounge
+• **WiFi**: Campus-wide high-speed internet
+• **Study Areas**: Multiple floors with comfortable seating
+
+**💻 Academic Tools:**
+• **Norminette**: Run \`norminette\` to check coding standards
+• **Moulinette**: Automated project grading system
+• **Intranet**: Access via campus computers
+• **Peer Evaluation**: Submit through the intranet
+
+**🎯 I specialize in 42 Heilbronn topics only.** For general questions, please use Google.
+
+Please try again in a few moments, or contact campus staff for immediate assistance! 🚀`;
+      } else if (err.message.includes('Server error: 500')) {
+        errorMessage = `⚡ **42Butler is experiencing technical difficulties.**
+
+My server is temporarily overwhelmed, but I can still provide basic 42 Heilbronn information:
+
+**🏫 Quick Campus Guide:**
+• **Hours**: Open 24/7 - the cluster never sleeps!
+• **Coffee**: Free machine in the ground floor lounge
+• **Tools**: Use \`norminette\` for code standards
+• **Grading**: Moulinette handles project evaluation
+
+**🎯 I focus on 42 Heilbronn topics only.** For general questions, please use Google.
+
+Try again in a few minutes, or contact 42 Heilbronn staff for immediate help! 🤝`;
+      } else {
+        errorMessage = `🔧 **42Butler is temporarily unavailable.**
+
+I'm working to get back online, but here's some essential 42 Heilbronn information:
+
+**📚 Campus Information:**
+• **Hours**: Open 24/7 for coding
+• **Coffee**: Free machine in ground floor lounge
+• **Tools**: Use \`norminette\` for code standards
+• **Grading**: Moulinette handles project evaluation
+
+**🎯 I specialize in 42 Heilbronn topics only.** For general questions, please use Google.
+
+Please try again in a few moments, or contact campus staff for immediate help! 🚀`;
+      }
+      
       setMessages([
         ...nextMessages,
-        { role: 'assistant', content: 'Sorry, something went wrong. Please try again.' },
+        { role: 'assistant', content: errorMessage },
       ]);
     } finally {
       setIsLoading(false);
