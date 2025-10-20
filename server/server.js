@@ -300,6 +300,31 @@ These commands will help you navigate and understand your file structure! 📂`;
 
 Ask me about specific commands for more detailed help! 🚀`;
           }
+        } else if (userMessage.includes('event') || userMessage.includes('create') || userMessage.includes('organize') || userMessage.includes('meeting')) {
+          fallbackReply = `📅 **Creating Events at 42 Heilbronn**:
+
+**To Create an Event**:
+• **Send an email to**: hello@42heilbronn.de
+• **Include details**: Event name, date, time, location, description
+• **Specify needs**: Room requirements, equipment, catering, etc.
+• **Timeline**: Send requests well in advance for approval
+
+**What to Include in Your Email**:
+• Event title and purpose
+• Proposed date and time
+• Expected number of attendees
+• Room or space requirements
+• Any special equipment needed
+• Contact information for questions
+
+**Event Types**:
+• Study groups and workshops
+• Student meetups
+• Technical presentations
+• Social events
+• Academic discussions
+
+**Pro Tip**: The earlier you submit your request, the better chance of approval and getting your preferred time slot! 📧`;
         } else if (userMessage.includes('ai') || userMessage.includes('chatgpt') || userMessage.includes('assistant') || userMessage.includes('tool')) {
           fallbackReply = `🤖 **AI Tools for 42 Students**:
 
