@@ -51,6 +51,34 @@
 
 **Important**: AI is a powerful learning companion, but your understanding and reasoning skills are what matter most!
 
+## 42 Card/Badge Problems
+
+### If Your 42 Card is Broken
+
+**Go to the Security Desk** - They handle all card/badge issues
+- **Location**: Main entrance security desk
+- **Hours**: Available during campus hours
+- **Bring ID**: Have your student ID ready for verification
+
+### Common Card Issues
+- Card not working at doors
+- Card damaged or cracked
+- Lost card replacement
+- Card access problems
+
+### What Security Can Do
+- Issue temporary access
+- Replace damaged cards
+- Reset card permissions
+- Help with access issues
+
+### Emergency Access
+- If you're locked out, contact security immediately
+- They can provide temporary access while your card is being fixed
+- Don't try to force doors or use other students' cards
+
+**Pro Tip**: Keep your card safe and report problems immediately to avoid access issues!
+
 ## Scraper Sources
 
 ### 42 Heilbronn

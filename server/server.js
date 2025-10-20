@@ -187,6 +187,33 @@ ${knowledgeBase}
 **Important**: Exam policies can vary by exam type and instructor. Always check the specific exam instructions and ask your supervisor if you're unsure about what's allowed.
 
 **Pro Tip**: When in doubt, ask the exam supervisor before the exam starts! 📚`;
+        } else if (userMessage.includes('card') || userMessage.includes('badge') || userMessage.includes('broken') || userMessage.includes('problem')) {
+          fallbackReply = `🪪 **42 Card/Badge Problems**:
+
+**If Your 42 Card is Broken**:
+• **Go to the Security Desk** - They handle all card/badge issues
+• **Location**: Main entrance security desk
+• **Hours**: Available during campus hours
+• **Bring ID**: Have your student ID ready for verification
+
+**Common Card Issues**:
+• Card not working at doors
+• Card damaged or cracked
+• Lost card replacement
+• Card access problems
+
+**What Security Can Do**:
+• Issue temporary access
+• Replace damaged cards
+• Reset card permissions
+• Help with access issues
+
+**Emergency Access**:
+• If you're locked out, contact security immediately
+• They can provide temporary access while your card is being fixed
+• Don't try to force doors or use other students' cards
+
+**Pro Tip**: Keep your card safe and report problems immediately to avoid access issues! 🔐`;
         } else if (userMessage.includes('norminette')) {
           fallbackReply = `🔍 **Norminette**: Your coding standard checker! Run \`norminette\` on your files to check compliance. It's strict but fair - follow the 42 coding standards and you'll be fine. Remember: clean code is good code! 📝`;
         } else if (userMessage.includes('moulinette')) {
