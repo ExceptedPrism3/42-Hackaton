@@ -44,20 +44,20 @@ export default function App() {
       </div>
 
       <header className={`sticky top-0 z-40 transition ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-md border-b border-white/20' : 'bg-white/60 backdrop-blur-lg'}`}>
-        <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-4">
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                  <span className="text-white font-bold text-2xl">42</span>
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                  <span className="text-white font-bold text-lg">42</span>
                 </div>
-                <div className={`absolute -top-1 -right-1 w-4 h-4 rounded-full border-2 border-white ${isOnline ? 'bg-green-400' : 'bg-red-400'} animate-pulse`}></div>
+                <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full border-2 border-white ${isOnline ? 'bg-green-400' : 'bg-red-400'} animate-pulse`}></div>
               </div>
               <div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
                   42Butler
                 </h1>
-                <p className="text-gray-600 text-lg">Your intelligent companion for campus life</p>
+                <p className="text-gray-600 text-sm">Your intelligent companion for campus life</p>
               </div>
             </div>
             
