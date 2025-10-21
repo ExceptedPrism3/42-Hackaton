@@ -58,7 +58,7 @@ export default function App() {
               </div>
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                  42Butler
+                  42Botler
                 </h1>
                 <p className="text-gray-600 text-sm">Your intelligent companion for campus life</p>
               </div>
@@ -123,7 +123,7 @@ export default function App() {
                 🐛 Report Bug
               </button>
               <span>•</span>
-              <span>© 2025 42Butler</span>
+              <span>© 2025 42Botler</span>
             </div>
           </div>
         </div>

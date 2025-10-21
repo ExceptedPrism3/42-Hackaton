@@ -46,7 +46,7 @@ export default function ChatWindow({ messages, setMessages, isOnline }) {
       let errorMessage = '';
       
       if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
-        errorMessage = `🔧 **42Butler is currently offline.**
+        errorMessage = `🔧 **42Botler is currently offline.**
 
 I'm temporarily unable to connect to my server, but here's some essential 42 Heilbronn information:
 
@@ -66,7 +66,7 @@ I'm temporarily unable to connect to my server, but here's some essential 42 Hei
 
 Please try again in a few moments, or contact campus staff for immediate assistance! 🚀`;
       } else if (err.message.includes('Server error: 500')) {
-        errorMessage = `⚡ **42Butler is experiencing technical difficulties.**
+        errorMessage = `⚡ **42Botler is experiencing technical difficulties.**
 
 My server is temporarily overwhelmed, but I can still provide basic 42 Heilbronn information:
 
@@ -80,7 +80,7 @@ My server is temporarily overwhelmed, but I can still provide basic 42 Heilbronn
 
 Try again in a few minutes, or contact 42 Heilbronn staff for immediate help! 🤝`;
       } else {
-        errorMessage = `🔧 **42Butler is temporarily unavailable.**
+        errorMessage = `🔧 **42Botler is temporarily unavailable.**
 
 I'm working to get back online, but here's some essential 42 Heilbronn information:
 
@@ -118,7 +118,7 @@ Please try again in a few moments, or contact campus staff for immediate help! �
               </div>
             </div>
             <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-              Welcome to 42Butler AI
+              Welcome to 42Botler AI
             </h3>
             <p className="text-gray-600 text-sm mb-3 max-w-md mx-auto">
               Ask me anything about campus life, coding standards, or general 42 questions.

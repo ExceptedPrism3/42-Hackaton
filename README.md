@@ -3,7 +3,7 @@
 ![React](https://img.shields.io/badge/React-18+-blue.svg)
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-orange.svg)
 
-# 42Butler
+# 42Botler
 
 A modern, intelligent chatbot designed specifically for 42 Heilbronn students. Built with React, Node.js, and OpenAI integration, it provides instant answers about campus life, coding standards, and student resources.
 

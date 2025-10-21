@@ -5,7 +5,7 @@ export default function About() {
     <div className="relative">
       <div className="mb-8 rounded-3xl overflow-hidden border border-white/40 bg-white/70 backdrop-blur-xl">
         <div className="p-10 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white text-center">
-          <h2 className="text-4xl font-extrabold tracking-tight">About 42Butler</h2>
+          <h2 className="text-4xl font-extrabold tracking-tight">About 42Botler</h2>
           <p className="mt-2 text-blue-50 max-w-3xl mx-auto">Your 42 Heilbronn companion for campus info, project guidance, and workflows — laser-focused on 42 content to keep you productive.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 p-8">

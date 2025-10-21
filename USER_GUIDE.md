@@ -1,12 +1,12 @@
-# 📚 42Butler AI - Complete User Guide
+# 📚 42Botler AI - Complete User Guide
 
-Welcome to **42Butler AI**, your intelligent companion for 42 Heilbronn campus life! This comprehensive guide will help you get the most out of your AI assistant.
+Welcome to **42Botler AI**, your intelligent companion for 42 Heilbronn campus life! This comprehensive guide will help you get the most out of your AI assistant.
 
 ## 🚀 Getting Started
 
-### What is 42Butler AI?
+### What is 42Botler AI?
 
-42Butler AI is a specialized chatbot designed exclusively for 42 Heilbronn students. It provides instant answers about:
+42Botler AI is a specialized chatbot designed exclusively for 42 Heilbronn students. It provides instant answers about:
 - 🏫 **Campus Information**: Opening hours, locations, amenities
 - 💻 **Coding Standards**: Norminette rules, best practices
 - 🤖 **Moulinette**: Grading system, submission guidelines
@@ -20,7 +20,7 @@ Welcome to **42Butler AI**, your intelligent companion for 42 Heilbronn campus l
 - Official 42 Heilbronn sources
 - Campus staff and administrators
 
-## 🎯 How to Use 42Butler
+## 🎯 How to Use 42Botler
 
 ### 1. **Quick Start Questions**
 Click on any of the suggested topics on the home page:
@@ -60,13 +60,13 @@ The AI automatically makes certain terms clickable:
 
 ## 🛡️ Content Safety & Guidelines
 
-### What 42Butler Can Help With
+### What 42Botler Can Help With
 ✅ **Campus Information**: Hours, locations, amenities
 ✅ **Academic Support**: Projects, coding standards, workflows
 ✅ **42-Specific Topics**: Moulinette, Norminette, campus life
 ✅ **Study Resources**: Best practices, tips, guidance
 
-### What 42Butler Redirects
+### What 42Botler Redirects
 ❌ **General Questions**: Redirected to Google or search engines
 ❌ **Non-42 Topics**: Focused only on 42 Heilbronn content
 ❌ **Inappropriate Language**: Filtered and redirected professionally
@@ -267,7 +267,7 @@ The AI automatically makes certain terms clickable:
 
 ---
 
-## 🎉 Welcome to 42Butler AI!
+## 🎉 Welcome to 42Botler AI!
 
 You're now ready to make the most of your AI assistant. Remember:
 - **Always verify important information**

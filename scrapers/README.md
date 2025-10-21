@@ -192,6 +192,6 @@ Set up a cron job for regular updates:
 
 ---
 
-**Built for 42Butler**
+**Built for 42Botler**
 
 *Automatically gathering comprehensive knowledge for intelligent student assistance.*

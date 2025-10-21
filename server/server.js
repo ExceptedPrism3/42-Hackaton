@@ -87,7 +87,7 @@ What 42-related question can I help you with instead? 🤝`;
 
     // Check if API key is configured and has quota
     if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'YOUR_API_KEY_HERE') {
-      const fallbackReply = `🔧 **42Butler is currently in maintenance mode.**
+      const fallbackReply = `🔧 **42Botler is currently in maintenance mode.**
 
 I'm temporarily unable to access my full AI capabilities, but I can still provide basic 42 Heilbronn information:
 
@@ -401,7 +401,7 @@ I'm here to help with:
 
 What 42-related question can I help you with? 🎓`;
         } else {
-          fallbackReply = `👋 **Hello!** I'm 42Butler. While my advanced AI features are temporarily unavailable, I can still help with campus information:
+          fallbackReply = `👋 **Hello!** I'm 42Botler. While my advanced AI features are temporarily unavailable, I can still help with campus information:
 
 • Campus is open 24/7
 • Free coffee in the lounge
@@ -424,7 +424,7 @@ What would you like to know about 42 Heilbronn? 🎓`;
     
     // Handle quota exceeded or API errors gracefully
     if (error.code === 'insufficient_quota' || error.status === 429) {
-      const fallbackReply = `⚡ **42Butler is experiencing high demand!**
+      const fallbackReply = `⚡ **42Botler is experiencing high demand!**
 
 My AI quota has been exceeded due to popular usage, but I can still provide essential 42 Heilbronn information:
 
@@ -448,7 +448,7 @@ Try again in a few minutes, or contact 42 Heilbronn staff for immediate assistan
     }
     
     // General error fallback
-    const generalFallback = `🔧 **42Butler is temporarily experiencing technical difficulties.**
+    const generalFallback = `🔧 **42Botler is temporarily experiencing technical difficulties.**
 
 I'm working to get back online, but here's some essential 42 Heilbronn information:
 

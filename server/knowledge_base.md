@@ -6014,6 +6014,24 @@ apply now
 - To check if your degree is recognized, visit: https://anabin.kmk.org/anabin.html
 - 42 Heilbronn cannot provide assistance with visa-related matters.
 - For visa information, see: https://www.auswaertiges-amt.de/en/visa-service/-/231148
+
+## Visa Assistance - Important Notice
+
+**Does 42 help with visa stuff?**
+
+**No, 42 Heilbronn does not help with visa matters.**
+
+**Key Points:**
+- 42 Heilbronn is **not an accredited educational institution** by German immigration authorities
+- 42 **cannot provide assistance** with visa-related matters
+- 42 staff are **not visa experts** and cannot offer help with the visa process
+- 42 can only provide an **admission letter** - no additional documents or support will be given
+- Students must have the **required documents** like work permits or other valid visas before applying
+- Participants must **do their own research** regarding visa requirements
+- 42 has **no control over the visa process** and cannot offer help with it
+- Please **don't list 42 staff as contacts** for visa applications
+
+**Important:** If you need a visa to study at 42, you must handle all visa matters independently. 42 cannot assist with visa applications, provide additional documentation, or act as a contact for immigration authorities.
 - ## Hackathon 2.0 Food Information
 
 ### Where can I find food during the hackaton 2.0?
