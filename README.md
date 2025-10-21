@@ -351,7 +351,9 @@ cp server/.env.example server/.env
 nano server/.env  # Add your OPENAI_API_KEY
 ```
 
-### **Step 3: Nginx Configuration**
+### **Step 3: Web Server Configuration**
+
+#### **Option A: Nginx Configuration**
 ```bash
 # Create Nginx config
 sudo nano /etc/nginx/sites-available/42butler
@@ -387,12 +389,49 @@ sudo nginx -t
 sudo systemctl restart nginx
 ```
 
+#### **Option B: Apache Configuration (for existing multi-site setup)**
+```bash
+# Copy the Apache configuration
+sudo cp apache-42butler.conf /etc/apache2/sites-available/42butler.conf
+
+# Edit the configuration with your domain and paths
+sudo nano /etc/apache2/sites-available/42butler.conf
+
+# Update these paths in the config:
+# - Replace "your-domain.com" with your actual domain
+# - Replace "/path/to/42-Hackaton" with your actual project path
+
+# Enable required Apache modules
+sudo a2enmod rewrite
+sudo a2enmod headers
+sudo a2enmod ssl
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+
+# Enable the site
+sudo a2ensite 42butler.conf
+
+# Test configuration
+sudo apache2ctl configtest
+
+# Restart Apache
+sudo systemctl restart apache2
+```
+
 ### **Step 4: SSL Certificate**
+
+#### **For Nginx:**
 ```bash
 # Get SSL certificate
 sudo certbot --nginx -d your-domain.com
+```
 
-# Auto-renewal
+#### **For Apache:**
+```bash
+# Get SSL certificate
+sudo certbot --apache -d your-domain.com
+
+# Auto-renewal (works for both Nginx and Apache)
 sudo crontab -e
 # Add: 0 12 * * * /usr/bin/certbot renew --quiet
 ```
