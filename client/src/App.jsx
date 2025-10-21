@@ -15,7 +15,8 @@ export default function App() {
     // Check server status
     const checkStatus = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/health');
+        // Use relative path for subdirectory deployment
+        const response = await fetch('/42butler/api/health');
         setIsOnline(response.ok);
       } catch {
         setIsOnline(false);
