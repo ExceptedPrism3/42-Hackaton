@@ -1,11 +1,12 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)
 ![React](https://img.shields.io/badge/React-18+-blue.svg)
-![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-orange.svg)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--3.5--turbo-orange.svg)
+![LLM](https://img.shields.io/badge/LLM-Powered-purple.svg)
 
 # 42Butler
 
-A modern, intelligent chatbot designed specifically for 42 Heilbronn students. Built with React, Node.js, and OpenAI integration, it provides instant answers about campus life, coding standards, and student resources.
+A modern, intelligent chatbot designed specifically for 42 Heilbronn students. Built with React, Node.js, and OpenAI GPT-3.5-turbo LLM integration, it provides instant answers about campus life, coding standards, and student resources.
 
 ## ✨ Features
 
@@ -22,6 +23,35 @@ A modern, intelligent chatbot designed specifically for 42 Heilbronn students. B
 - 🐛 **Bug Reporting**: Easy bug report button for false information
 - 🎨 **Animated UI**: Smooth animations and hover effects
 - 📊 **Error Handling**: Graceful fallback messages when server is down
+
+## 🤖 LLM Integration
+
+### **Core AI Engine**
+- **Model**: OpenAI GPT-3.5-turbo
+- **API**: OpenAI Chat Completions API
+- **Context**: 42 Heilbronn specialized knowledge base
+- **Fallback**: Smart responses when LLM quota exceeded
+
+### **LLM Features**
+- **System Prompt Engineering**: Customized for 42 Heilbronn context
+- **Knowledge Base Integration**: Enhanced with campus-specific information
+- **Content Filtering**: Inappropriate language detection and response
+- **Context-Aware Responses**: Maintains conversation history
+- **Specialized Focus**: Only answers 42-related questions
+
+### **Smart Response System**
+```javascript
+// LLM Integration Example
+const completion = await openai.chat.completions.create({
+  model: 'gpt-3.5-turbo',
+  messages: [
+    { role: 'system', content: systemPrompt },
+    ...messages
+  ],
+  max_tokens: 1000,
+  temperature: 0.7,
+});
+```
 
 ## 🏗️ Project Structure
 
@@ -277,6 +307,164 @@ COPY server/ .
 EXPOSE 3001
 CMD ["npm", "start"]
 ```
+
+## 🚀 Ubuntu Server Deployment
+
+### **Prerequisites**
+- Ubuntu 20.04+ server
+- Node.js 18+ installed
+- Nginx (for reverse proxy)
+- SSL certificate (Let's Encrypt recommended)
+- Domain name pointing to your server
+
+### **Step 1: Server Setup**
+```bash
+# Update system
+sudo apt update && sudo apt upgrade -y
+
+# Install Node.js 18+
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Install Nginx
+sudo apt install nginx -y
+
+# Install PM2 for process management
+sudo npm install -g pm2
+
+# Install SSL certificate tool
+sudo apt install certbot python3-certbot-nginx -y
+```
+
+### **Step 2: Application Deployment**
+```bash
+# Clone repository
+git clone https://github.com/ExceptedPrism3/42-Hackaton.git
+cd 42-Hackaton
+
+# Install dependencies
+cd server && npm install
+cd ../client && npm install && npm run build
+
+# Set up environment variables
+cp server/.env.example server/.env
+nano server/.env  # Add your OPENAI_API_KEY
+```
+
+### **Step 3: Nginx Configuration**
+```bash
+# Create Nginx config
+sudo nano /etc/nginx/sites-available/42butler
+
+# Add this configuration:
+server {
+    listen 80;
+    server_name your-domain.com;
+
+    # Frontend (React build)
+    location / {
+        root /path/to/42-Hackaton/client/dist;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Backend API
+    location /api {
+        proxy_pass http://localhost:3001;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+# Enable site
+sudo ln -s /etc/nginx/sites-available/42butler /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx
+```
+
+### **Step 4: SSL Certificate**
+```bash
+# Get SSL certificate
+sudo certbot --nginx -d your-domain.com
+
+# Auto-renewal
+sudo crontab -e
+# Add: 0 12 * * * /usr/bin/certbot renew --quiet
+```
+
+### **Step 5: Process Management**
+```bash
+# Create PM2 ecosystem file
+nano ecosystem.config.js
+
+# Add this configuration:
+module.exports = {
+  apps: [{
+    name: '42butler-server',
+    script: 'server/server.js',
+    cwd: '/path/to/42-Hackaton',
+    env: {
+      NODE_ENV: 'production',
+      PORT: 3001
+    }
+  }]
+};
+
+# Start with PM2
+pm2 start ecosystem.config.js
+pm2 save
+pm2 startup
+```
+
+### **Step 6: Security Hardening**
+```bash
+# Configure firewall
+sudo ufw allow ssh
+sudo ufw allow 'Nginx Full'
+sudo ufw enable
+
+# Set up fail2ban
+sudo apt install fail2ban -y
+sudo systemctl enable fail2ban
+
+# Configure automatic updates
+sudo apt install unattended-upgrades -y
+sudo dpkg-reconfigure -plow unattended-upgrades
+```
+
+## 🔒 Security Considerations
+
+### **Environment Security**
+- **API Keys**: Store in environment variables, never in code
+- **HTTPS Only**: Force SSL/TLS encryption
+- **CORS**: Configure for production domains only
+- **Rate Limiting**: Implement to prevent abuse
+
+### **Server Security**
+- **Firewall**: Configure UFW with minimal open ports
+- **Updates**: Enable automatic security updates
+- **Monitoring**: Set up log monitoring and alerts
+- **Backups**: Regular automated backups
+
+### **Application Security**
+- **Input Validation**: Sanitize all user inputs
+- **Content Filtering**: Implement inappropriate content detection
+- **Error Handling**: Don't expose sensitive information in errors
+- **API Protection**: Implement rate limiting and authentication if needed
+
+### **Production Checklist**
+- [ ] SSL certificate installed and auto-renewing
+- [ ] Environment variables secured
+- [ ] Firewall configured
+- [ ] Process manager (PM2) running
+- [ ] Log monitoring set up
+- [ ] Regular backups configured
+- [ ] Security updates automated
 
 ## 📊 Performance
 
