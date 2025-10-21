@@ -289,8 +289,24 @@ cd server && npm start
 ### Local Development
 - Both servers run locally
 - Perfect for development and testing
+- Uses root path `/` for all assets
 
 ### Production Deployment
+
+#### For Ubuntu Server with Subdirectory
+If you're deploying to a subdirectory like `/42butler/` on your Ubuntu server:
+
+```bash
+# Use the provided build script
+./build-for-server.sh
+```
+
+This will:
+- Set the correct base path for subdirectory deployment
+- Build the project with `/42butler/` as the base path
+- Create a `dist` folder ready for server deployment
+
+#### For Standard Deployment
 - Deploy server to cloud platform (Heroku, Vercel, etc.)
 - Deploy client to static hosting (Netlify, Vercel, etc.)
 - Update API URLs in client code
