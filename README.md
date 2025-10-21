@@ -293,18 +293,20 @@ cd server && npm start
 
 ### Production Deployment
 
-#### For Ubuntu Server with Subdirectory
-If you're deploying to a subdirectory like `/42butler/` on your Ubuntu server:
+#### Automatic Subdirectory Detection
+The build process automatically detects the deployment environment:
 
+- **Local Development** (`npm run dev`): Uses root path `/`
+- **Production Build** (`npm run build`): Uses subdirectory path `/42butler/`
+
+No extra commands or configuration needed!
+
+#### For Ubuntu Server Deployment
 ```bash
-# Use the provided build script
-./build-for-server.sh
+cd client
+npm run build
+# Automatically builds with /42butler/ base path for server deployment
 ```
-
-This will:
-- Set the correct base path for subdirectory deployment
-- Build the project with `/42butler/` as the base path
-- Create a `dist` folder ready for server deployment
 
 #### For Standard Deployment
 - Deploy server to cloud platform (Heroku, Vercel, etc.)
