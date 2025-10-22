@@ -4,6 +4,13 @@
 
 **Total sources:** 8
 
+## 🚨 CRITICAL FAQ - VISA ASSISTANCE
+
+**Q: Does 42 help with visa stuff?**
+**A: ❌ NO - 42 Heilbronn does NOT help with visa matters.**
+
+42 Heilbronn is NOT an accredited educational institution by German immigration authorities and CANNOT provide visa assistance. Students must handle ALL visa matters independently. Contact German embassy/consulate or immigration authorities for visa help, NOT 42 staff.
+
 ## Exam Policies
 
 ### Food and Drink During Exams
@@ -6015,23 +6022,29 @@ apply now
 - 42 Heilbronn cannot provide assistance with visa-related matters.
 - For visa information, see: https://www.auswaertiges-amt.de/en/visa-service/-/231148
 
-## Visa Assistance - Important Notice
+## Visa Assistance - CRITICAL INFORMATION
 
 **Does 42 help with visa stuff?**
 
-**No, 42 Heilbronn does not help with visa matters.**
+**❌ NO - 42 Heilbronn does NOT help with visa matters.**
 
-**Key Points:**
-- 42 Heilbronn is **not an accredited educational institution** by German immigration authorities
-- 42 **cannot provide assistance** with visa-related matters
-- 42 staff are **not visa experts** and cannot offer help with the visa process
-- 42 can only provide an **admission letter** - no additional documents or support will be given
+**🚨 IMPORTANT CLARIFICATION:**
+- 42 Heilbronn is **NOT an accredited educational institution** by German immigration authorities
+- 42 **CANNOT and WILL NOT provide assistance** with visa-related matters
+- 42 staff are **NOT visa experts** and cannot offer help with the visa process
+- 42 can **ONLY provide an admission letter** - no additional documents or support will be given
 - Students must have the **required documents** like work permits or other valid visas before applying
 - Participants must **do their own research** regarding visa requirements
-- 42 has **no control over the visa process** and cannot offer help with it
-- Please **don't list 42 staff as contacts** for visa applications
+- 42 has **NO control over the visa process** and cannot offer help with it
+- **DO NOT list 42 staff as contacts** for visa applications
 
-**Important:** If you need a visa to study at 42, you must handle all visa matters independently. 42 cannot assist with visa applications, provide additional documentation, or act as a contact for immigration authorities.
+**⚠️ CRITICAL:** If you need a visa to study at 42, you must handle ALL visa matters independently. 42 cannot assist with visa applications, provide additional documentation, or act as a contact for immigration authorities.
+
+**For visa questions, contact:**
+- German embassy/consulate in your country
+- German immigration authorities
+- Professional visa consultants
+- NOT 42 Heilbronn staff
 - ## Hackathon 2.0 Food Information
 
 ### Where can I find food during the hackaton 2.0?
