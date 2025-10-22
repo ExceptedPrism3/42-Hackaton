@@ -25,15 +25,23 @@ case $1 in
         echo "📱 Client: http://localhost:5173"
         echo "🖥️  Server: http://localhost:3001"
         echo ""
+        echo "📦 Installing dependencies..."
+        cd client && npm install
+        cd ../server && npm install
         echo "Starting client in background..."
-        cd client && npm run dev &
+        cd ../client && npm run dev &
         CLIENT_PID=$!
         echo "Starting server..."
-        cd server && npm start
+        cd ../server && npm start
         ;;
     "p"|"prod"|"production")
         echo "🏗️  Building for production..."
-        cd client && npm run build
+        echo "📦 Installing client dependencies..."
+        cd client && npm install
+        echo "📦 Installing server dependencies..."
+        cd ../server && npm install
+        echo "🏗️  Building client..."
+        cd ../client && npm run build
         echo "✅ Build complete!"
         echo ""
         echo "🚀 Starting production server..."
