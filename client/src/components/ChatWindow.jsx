@@ -52,15 +52,15 @@ I'm temporarily unable to connect to my server, but here's some essential 42 Hei
 
 **📚 Campus Essentials:**
 • **Hours**: Open 24/7 for coding sessions
-• **Coffee**: Free machine in the ground floor lounge
+• **Coffee**: Free machine on both floors
 • **WiFi**: Campus-wide high-speed internet
 • **Study Areas**: Multiple floors with comfortable seating
 
 **💻 Academic Tools:**
-• **Norminette**: Run \`norminette\` to check coding standards
-• **Moulinette**: Automated project grading system
-• **Intranet**: Access via campus computers
-• **Peer Evaluation**: Submit through the intranet
+• **Norminette**: For pisciners - run \`norminette\` to check coding standards
+• **Francinette**: For students - use on your projects
+• **Moulinette**: Automated grading for pisciners only
+• **Peer Review**: For students - submit through the intranet
 
 **🎯 I specialize in 42 Heilbronn topics only.** For general questions, please use Google.
 
@@ -72,9 +72,9 @@ My server is temporarily overwhelmed, but I can still provide basic 42 Heilbronn
 
 **🏫 Quick Campus Guide:**
 • **Hours**: Open 24/7 - the cluster never sleeps!
-• **Coffee**: Free machine in the ground floor lounge
-• **Tools**: Use \`norminette\` for code standards
-• **Grading**: Moulinette handles project evaluation
+• **Coffee**: Free machine on both floors
+• **Tools**: Use \`norminette\` for pisciners, \`francinette\` for students
+• **Grading**: Moulinette for pisciners, peer review for students
 
 **🎯 I focus on 42 Heilbronn topics only.** For general questions, please use Google.
 
@@ -86,9 +86,9 @@ I'm working to get back online, but here's some essential 42 Heilbronn informati
 
 **📚 Campus Information:**
 • **Hours**: Open 24/7 for coding
-• **Coffee**: Free machine in ground floor lounge
-• **Tools**: Use \`norminette\` for code standards
-• **Grading**: Moulinette handles project evaluation
+• **Coffee**: Free machine on both floors
+• **Tools**: Use \`norminette\` for pisciners, \`francinette\` for students, and other tools
+• **Grading**: Moulinette for pisciners, peer review for students
 
 **🎯 I specialize in 42 Heilbronn topics only.** For general questions, please use Google.
 
