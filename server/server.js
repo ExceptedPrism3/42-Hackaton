@@ -16,6 +16,9 @@ const openai = new OpenAI({
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the built client
+app.use('/42butler', express.static(path.join(__dirname, '../client/dist')));
+
 // Read knowledge base
 function getKnowledgeBase(maxLength = 10000) {
   try {
@@ -466,9 +469,15 @@ Please try again in a few moments, or contact campus staff for immediate help! ð
   }
 });
 
+// Serve the main HTML file for the /42butler/ route
+app.get('/42butler/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
 app.listen(port, () => {
   console.log(`Server listening on http://localhost:${port}`);
   console.log(`Health check: http://localhost:${port}/api/health`);
+  console.log(`42Botler: http://localhost:${port}/42butler/`);
 });
 
 
