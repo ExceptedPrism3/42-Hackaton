@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TypewriterText from './TypewriterText.jsx';
 
 // Bash Command Component
 function BashCommand({ command, description, example }) {
@@ -202,7 +203,7 @@ function renderBashCommands(text) {
   );
 }
 
-export default function Message({ role, content }) {
+export default function Message({ role, content, isTyping = false }) {
   const isUser = role === 'user';
   
   return (
@@ -231,13 +232,20 @@ export default function Message({ role, content }) {
             ? 'bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 text-white' 
             : 'bg-white/90 border border-gray-200/50 text-gray-800'
         }`}>
-          <div className="whitespace-pre-wrap text-base leading-relaxed">
-            {renderMarkdown(content)}
-          </div>
+          {isUser ? (
+            <div className="whitespace-pre-wrap text-base leading-relaxed">
+              {renderMarkdown(content)}
+            </div>
+          ) : (
+            <TypewriterText 
+              text={content} 
+              speed={20}
+            />
+          )}
           <div className={`text-xs mt-3 font-medium ${
             isUser ? 'text-blue-100' : 'text-gray-500'
           }`}>
-            {isUser ? 'You' : 'AI Assistant'} • {new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+            {isUser ? 'You' : '42Botler'} • {new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
           </div>
         </div>
       </div>
