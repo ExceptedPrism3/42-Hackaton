@@ -10,7 +10,7 @@ export default defineConfig(({ command, mode }) => {
   
   return {
     plugins: [react()],
-    base: isProduction ? '/42butler/' : '/',
+    base: isProduction ? '/42botler/' : '/',
     server: {
       proxy: {
         '/api': {

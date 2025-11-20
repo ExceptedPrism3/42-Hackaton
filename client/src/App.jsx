@@ -16,7 +16,7 @@ export default function App() {
     const checkStatus = async () => {
       try {
         // Use relative path for subdirectory deployment
-        const response = await fetch('/42butler/api/health');
+        const response = await fetch(import.meta.env.PROD ? '/42botler/api/health' : '/api/health');
         setIsOnline(response.ok);
       } catch {
         setIsOnline(false);
